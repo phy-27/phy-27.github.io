@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Atomic Structure, Electromagnetic Radiation and Atomic Spectra – Practice</title>
+<style>
+:root{--bg:#f7f6f2;--card:#fff;--ink:#1c2733;--mute:#5d6b79;--line:#d9dde1;--ok:#17703f;--okbg:#e3f3ea;--bad:#a8261f;--badbg:#fbe8e6;--acc:#2a4d8f;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#131a22;--card:#1b2530;--ink:#e8edf2;--mute:#9aa8b6;--line:#2e3b48;--ok:#6fd49b;--okbg:#17352a;--bad:#ff8f87;--badbg:#3b1f1d;--acc:#8fb0f0;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#131a22;--card:#1b2530;--ink:#e8edf2;--mute:#9aa8b6;--line:#2e3b48;--ok:#6fd49b;--okbg:#17352a;--bad:#ff8f87;--badbg:#3b1f1d;--acc:#8fb0f0;color-scheme:dark}
+*{box-sizing:border-box}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.55 system-ui,-apple-system,"Segoe UI",sans-serif}
+.band{height:6px;background:linear-gradient(90deg,#6a1b9a,#3f51b5,#1e88e5,#2e9e5b,#e6c200,#f57c00,#d32f2f)}
+main{max-width:720px;margin:0 auto;padding:20px 16px 60px}
+h1{font:600 1.65rem/1.2 Georgia,"Iowan Old Style",serif;margin:8px 0 6px}
+.sub{color:var(--mute);margin:0 0 14px}
+.consts{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:10px 14px;font-size:.9rem;color:var(--mute)}
+.consts b{color:var(--ink);font-weight:600}
+.bar{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;display:flex;gap:8px;align-items:center;flex-wrap:wrap;background:var(--bg);padding:10px 0;margin-top:8px;border-bottom:1px solid var(--line)}
+.score{margin-left:auto;font-weight:600}
+button{font:inherit;cursor:pointer;border-radius:6px;border:1px solid var(--acc);background:var(--acc);color:#fff;padding:7px 14px}
+button.ghost{background:transparent;color:var(--acc)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) button:not(.ghost){color:#0b1220}}
+:root[data-theme="dark"] button:not(.ghost){color:#0b1220}
+button:focus-visible,input:focus-visible,select:focus-visible{outline:3px solid var(--acc);outline-offset:2px}
+.q{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:14px 16px;margin-top:14px}
+.q h2{font:600 .95rem/1.3 system-ui,sans-serif;margin:0 0 6px;color:var(--mute)}
+.q p{margin:0 0 10px}
+.row{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:6px 0}
+.row label{min-width:150px}
+input,select{font:inherit;padding:6px 8px;border:1px solid var(--line);border-radius:6px;background:var(--bg);color:var(--ink);width:150px}
+.u{color:var(--mute);min-width:44px}
+.row.ok input,.row.ok select{border-color:var(--ok);background:var(--okbg)}
+.row.bad input,.row.bad select{border-color:var(--bad);background:var(--badbg)}
+.fb{font-size:.88rem;flex-basis:100%}
+.row.ok .fb{color:var(--ok)}.row.bad .fb{color:var(--bad)}
+.acts{display:flex;gap:8px;margin-top:8px}
+.work{display:none;margin-top:10px;padding:10px 12px;border-left:3px solid var(--acc);background:var(--bg);font-size:.93rem}
+.work.on{display:block}
+.work div{margin:4px 0}
+.fr{display:inline-flex;flex-direction:column;vertical-align:middle;text-align:center;margin:0 .25em;line-height:1.35}.fr>span:first-child{border-bottom:1.5px solid currentColor;padding:0 .35em 1px}.fr>span:last-child{padding:1px .35em 0}sup,sub{line-height:0;font-size:.75em}.eq{line-height:2.3;font-family:Georgia,"Times New Roman",serif;font-size:1.02rem}.fm{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:4px 18px;margin-top:8px;font-family:Georgia,serif;font-size:1.02rem;line-height:2.2}details.fms{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:10px 14px;margin-top:10px}details.fms summary{cursor:pointer;font-weight:600}.hint{font-size:.85rem;color:var(--mute);margin:10px 0 0}
+.lvl{font:600 1.2rem Georgia,serif;margin:28px 0 0;color:var(--acc)}.ans{margin-top:8px}
+.op{display:block;padding:6px 10px;margin:5px 0;border:1px solid var(--line);border-radius:6px;cursor:pointer}.op.ok{border-color:var(--ok);background:var(--okbg)}.op.bad{border-color:var(--bad);background:var(--badbg)}.op input{margin-right:6px}
+.tabs{position:sticky;top:env(safe-area-inset-top,0px);z-index:7;display:flex;gap:6px;overflow-x:auto;background:var(--bg);padding:10px 0;margin-top:10px;border-bottom:1px solid var(--line);scrollbar-width:thin}
+.tab{white-space:nowrap;flex:none}.tab small{opacity:.8;margin-left:6px}
+.panel .bar{position:static}.q{scroll-margin-top:70px}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin:12px 0 4px;align-items:center}
+.chip{width:36px;height:36px;padding:0;font-size:.85rem}
+.chip.ok{background:var(--okbg);border-color:var(--ok);color:var(--ok)}
+.chip.bad{background:var(--badbg);border-color:var(--bad);color:var(--bad)}
+.chip.seen{border-style:dashed}
+.prog{height:6px;border-radius:3px;background:var(--line);overflow:hidden;margin:8px 0}.prog i{display:block;height:100%;width:0;background:var(--ok);transition:width .3s}
+@media (prefers-reduced-motion:reduce){.prog i{transition:none}}
+/* ===== interactive layer ===== */
+:root{--sh:0 6px 24px rgba(20,30,50,.08);--wc:#2e9e5b}
+body{background:radial-gradient(1200px 500px at 50% -120px,color-mix(in srgb,var(--wc) 14%,transparent),transparent),var(--bg);transition:background .4s}
+main{max-width:860px}
+.band{height:8px;background-size:200% 100%;animation:slide 8s linear infinite}
+@keyframes slide{to{background-position:200% 0}}
+h1{font-size:2rem;letter-spacing:-.01em}
+.hero{margin:6px 0 18px}.hero-top{display:flex;justify-content:space-between;align-items:center;gap:8px}
+.eyebrow{font:600 .75rem system-ui;letter-spacing:.14em;text-transform:uppercase;color:var(--wc);filter:brightness(.85)}
+#wave{width:100%;height:90px;display:block;border-radius:14px;background:var(--card);border:1px solid var(--line);margin:10px 0}
+.lab-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:14px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:16px;box-shadow:var(--sh)}
+.card h3{margin:0 0 10px;font:600 1rem Georgia,serif}
+#lam{width:100%;padding:0;accent-color:var(--wc);height:28px}
+.sbar{position:relative;height:16px;border-radius:8px;margin:2px 0 6px;border:1px solid var(--line)}
+.sbar i{position:absolute;top:-5px;width:4px;height:26px;border-radius:2px;background:var(--ink);transform:translateX(-50%);transition:left .08s}
+.pre{display:flex;flex-wrap:wrap;gap:5px;margin:8px 0}.pre button{padding:3px 9px;font-size:.78rem;border-radius:99px}
+.rd{display:grid;grid-template-columns:1fr 1fr;gap:6px 12px;font-size:.9rem;margin-top:8px}.rd div{background:var(--bg);border-radius:8px;padding:6px 10px}.rd small{display:block;color:var(--mute);font-size:.7rem;text-transform:uppercase;letter-spacing:.06em}
+.pill{display:inline-block;padding:2px 12px;border-radius:99px;color:#fff;font-weight:600;background:var(--wc);text-shadow:0 1px 2px rgba(0,0,0,.35)}
+#hsvg{width:100%;height:auto;display:block}#hsvg .lv{cursor:pointer}#hsvg .lv:hover line{stroke-width:4}#hsvg text{fill:var(--ink);font:12px system-ui}
+.glow{filter:drop-shadow(0 0 4px var(--wc));animation:pulse 1.4s ease-in-out infinite}@keyframes pulse{50%{opacity:.45}}
+.tabs{border:none;padding:10px 4px;backdrop-filter:blur(10px);background:color-mix(in srgb,var(--bg) 85%,transparent)}
+.tab{border-radius:99px;transition:transform .15s,box-shadow .15s}.tab:hover{transform:translateY(-2px)}.tab:not(.ghost){box-shadow:0 4px 14px color-mix(in srgb,var(--acc) 45%,transparent)}
+.q{border-radius:16px;box-shadow:var(--sh);border-left:5px solid var(--line);transition:transform .2s,border-color .3s;animation:up .45s both}
+.q:hover{transform:translateY(-2px)}@keyframes up{from{opacity:0;transform:translateY(14px)}}
+.q:has(.row.ok):not(:has(.row.bad)),.q:has(.op.ok input:checked){border-left-color:var(--ok)}.q:has(.row.bad),.q:has(.op.bad){border-left-color:var(--bad)}
+.op{border-radius:10px;transition:all .15s}.op:hover{transform:translateX(4px);border-color:var(--acc)}
+.chip{border-radius:50%;transition:transform .15s}.chip:hover{transform:scale(1.2)}
+button{transition:transform .1s,filter .15s}button:active{transform:scale(.95)}button:hover{filter:brightness(1.1)}
+.xp{position:fixed;right:14px;bottom:calc(14px + env(safe-area-inset-bottom,0px));z-index:20;background:var(--acc);color:#fff;padding:8px 16px;border-radius:99px;font-weight:600;box-shadow:var(--sh)}
+:root[data-theme="dark"] .xp{color:#0b1220}.xp.pop{animation:pop .4s}@keyframes pop{50%{transform:scale(1.25)}}
+.bf{position:fixed;width:9px;height:9px;border-radius:2px;pointer-events:none;z-index:50;animation:fly .8s ease-out forwards}
+@keyframes fly{to{transform:translate(var(--dx),var(--dy)) rotate(540deg);opacity:0}}
+@media (prefers-reduced-motion:reduce){.band,.q,.glow,.bf,.xp.pop{animation:none}}
+/* ===== v2 design: Spectral ===== */
+:root{--bg:#f5f4fb;--bg2:#eceaf8;--card:#fff;--glass:rgba(255,255,255,.74);--ink:#17172b;--mute:#66668a;--line:#dcd9ee;--acc:#5b3fd6;--ok:#0b7d49;--okbg:rgba(16,185,129,.13);--bad:#c42a45;--badbg:rgba(225,29,72,.1);--hl:36%;--sh:0 10px 30px rgba(60,40,140,.1)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#090c1b;--bg2:#121730;--card:#141a32;--glass:rgba(22,28,56,.62);--ink:#eceefc;--mute:#9aa1c8;--line:rgba(255,255,255,.1);--acc:#a395ff;--ok:#4ade80;--okbg:rgba(74,222,128,.12);--bad:#fb7185;--badbg:rgba(251,113,133,.12);--hl:74%;--sh:0 12px 34px rgba(0,0,0,.45)}}
+:root[data-theme="dark"]{--bg:#090c1b;--bg2:#121730;--card:#141a32;--glass:rgba(22,28,56,.62);--ink:#eceefc;--mute:#9aa1c8;--line:rgba(255,255,255,.1);--acc:#a395ff;--ok:#4ade80;--okbg:rgba(74,222,128,.12);--bad:#fb7185;--badbg:rgba(251,113,133,.12);--hl:74%;--sh:0 12px 34px rgba(0,0,0,.45)}
+body{font-family:Inter,system-ui,-apple-system,"Segoe UI",sans-serif;background:radial-gradient(70vw 45vh at 8% -8%,color-mix(in srgb,var(--wc) 30%,transparent),transparent 65%),radial-gradient(55vw 40vh at 100% 0,hsla(200,90%,55%,.16),transparent 60%),radial-gradient(70vw 50vh at 50% 115%,hsla(335,90%,60%,.14),transparent 60%),var(--bg);background-attachment:fixed}
+.band{height:5px;box-shadow:0 0 22px 2px color-mix(in srgb,var(--wc) 70%,transparent)}
+main{max-width:900px;padding-top:26px}
+h1{font-family:"Fraunces","Iowan Old Style",Georgia,serif;font-size:clamp(1.9rem,6.4vw,2.9rem);line-height:1.08;font-weight:700;letter-spacing:-.02em;background:linear-gradient(95deg,#7c3aed,#0ea5e9 30%,#10b981 55%,#f59e0b 78%,#e11d48);-webkit-background-clip:text;background-clip:text;color:transparent;margin:6px 0 10px}
+.sub{font-size:1.02rem;max-width:60ch}
+.hero{margin-bottom:22px}
+.eyebrow{display:inline-block;padding:5px 12px;border-radius:99px;background:var(--glass);border:1px solid var(--line);filter:none;color:var(--mute);letter-spacing:.12em}
+#wave{height:110px;border-radius:22px;background:var(--glass);box-shadow:var(--sh),inset 0 0 40px color-mix(in srgb,var(--wc) 16%,transparent);backdrop-filter:blur(10px)}
+.card,.consts,details.fms,.bar{background:var(--glass);border:1px solid var(--line);border-radius:20px;backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px)}
+.card{padding:20px;box-shadow:var(--sh)}
+.card h3{font:700 .8rem system-ui;letter-spacing:.14em;text-transform:uppercase;color:var(--mute);margin-bottom:14px}
+.rd div{background:var(--bg2);border:1px solid var(--line);border-radius:14px;padding:9px 12px;font-variant-numeric:tabular-nums}
+.rd small{font-weight:600;margin-bottom:2px}
+.pill{border-radius:99px;padding:3px 14px;box-shadow:0 4px 14px color-mix(in srgb,var(--wc) 55%,transparent)}
+.sbar{height:20px;border-radius:12px;box-shadow:inset 0 0 0 1px var(--line)}.sbar i{height:30px;top:-5px;border-radius:3px;box-shadow:0 0 0 3px var(--bg),0 4px 12px rgba(0,0,0,.4)}
+.consts{font-size:.82rem;padding:12px 16px;line-height:1.8}
+details.fms{padding:14px 18px}details.fms summary{font-size:.8rem;letter-spacing:.14em;text-transform:uppercase;color:var(--mute)}
+.fm{gap:10px}.fm>span{background:var(--bg2);border:1px solid var(--line);border-radius:14px;padding:4px 14px;line-height:2.1}
+/* buttons */
+button{border-radius:12px;font-weight:600}
+:root:root:root button:not(.ghost){background:linear-gradient(135deg,#7c3aed,#2563eb);border:0;color:#fff;padding:10px 18px;box-shadow:0 8px 20px rgba(99,70,230,.35)}
+button.ghost{background:var(--glass);color:var(--ink);border:1px solid var(--line)}button.ghost:hover{border-color:var(--acc);color:var(--acc)}
+/* tabs */
+.tabs{display:grid;grid-template-columns:1fr 1fr;gap:6px;padding:6px;margin:16px 0 8px;border:1px solid var(--line);border-radius:20px;background:var(--glass);top:calc(env(safe-area-inset-top,0px) + 8px);box-shadow:var(--sh)}
+.tab{padding:13px 10px;font-size:.95rem;white-space:normal;line-height:1.2;border-radius:15px}
+.tab.ghost{background:transparent;border-color:transparent}.tab small{display:block;opacity:.8;margin:2px 0 0;font-size:.75rem;font-variant-numeric:tabular-nums}
+.prog{height:8px;border-radius:99px;background:var(--bg2);margin:10px 4px 4px}.prog i{background:linear-gradient(90deg,#7c3aed,#0ea5e9,#10b981,#f59e0b);border-radius:99px}
+.bar{padding:10px 14px;margin:12px 0;border-bottom:1px solid var(--line)}.score{color:var(--acc);font-variant-numeric:tabular-nums}
+/* questions */
+.q{--h:265;--c:hsl(var(--h) 85% 60%);background:var(--glass);border:1px solid var(--line);border-left:4px solid var(--c);border-radius:20px;padding:20px 22px;margin-top:16px;backdrop-filter:blur(12px);box-shadow:var(--sh)}
+.q:nth-of-type(7n+2){--h:225}.q:nth-of-type(7n+3){--h:195}.q:nth-of-type(7n+4){--h:155}.q:nth-of-type(7n+5){--h:45}.q:nth-of-type(7n+6){--h:25}.q:nth-of-type(7n){--h:350}
+.q>h2{display:inline-block;font:700 .7rem system-ui;letter-spacing:.14em;text-transform:uppercase;color:hsl(var(--h) 80% var(--hl));background:hsl(var(--h) 85% 55%/.14);padding:5px 12px;border-radius:99px;margin-bottom:12px}
+.q p{font-size:1.04rem;line-height:1.65}
+.lvl{display:flex;align-items:center;gap:12px;margin:38px 0 0;font-family:"Fraunces",Georgia,serif;color:var(--ink)}.lvl:after{content:"";flex:1;height:1px;background:linear-gradient(90deg,var(--line),transparent)}
+input,select{width:170px;padding:11px 13px;border-radius:12px;background:var(--bg2);border:1.5px solid var(--line);transition:box-shadow .15s,border-color .15s}
+input:focus,select:focus{outline:none;border-color:var(--c,var(--acc));box-shadow:0 0 0 4px color-mix(in srgb,var(--c,var(--acc)) 22%,transparent)}
+.row label{font-weight:500}.u{font-size:.9rem}.fb{font-weight:500}
+.row.ok input,.row.ok select{border-color:var(--ok)}.row.bad input,.row.bad select{border-color:var(--bad)}
+.work{border-radius:14px;border-left:3px solid var(--c);background:hsl(var(--h) 85% 55%/.08);padding:12px 16px}
+.op{display:flex;gap:10px;align-items:baseline;padding:13px 16px;margin:8px 0;border-radius:14px;background:var(--bg2);border:1.5px solid var(--line)}
+.op:has(input:checked){border-color:var(--acc)}.op b{color:var(--acc)}.op input{accent-color:var(--acc)}
+.op.ok{background:var(--okbg);border-color:var(--ok)}.op.bad{background:var(--badbg);border-color:var(--bad)}
+.chips{padding:12px;background:var(--glass);border:1px solid var(--line);border-radius:18px;gap:7px}
+.chip{width:38px;height:38px;border-radius:12px;font-size:.82rem}
+.xp{background:var(--glass);backdrop-filter:blur(14px);border:1px solid var(--line);box-shadow:var(--sh)}
+:root:root:root .xp{color:var(--ink)}
+@media (max-width:520px){main{padding-left:12px;padding-right:12px}.q{padding:16px}input,select{width:100%}.row label{min-width:100%}.rd{grid-template-columns:1fr 1fr}}
+/* compact MCQ options, no radio circles */
+.op{position:relative;display:flex;gap:8px;align-items:baseline;padding:6px 12px;margin:5px 0;border-radius:10px;font-size:.92rem;line-height:1.4;border-width:1px}
+.op input{position:absolute;opacity:0;width:0;height:0;margin:0;pointer-events:none}
+.op b{min-width:1.1em}.op:hover{transform:none;border-color:var(--acc);background:color-mix(in srgb,var(--acc) 10%,var(--bg2))}
+.op:has(input:checked){background:color-mix(in srgb,var(--acc) 16%,var(--bg2));border-color:var(--acc)}
+.op:has(input:focus-visible){outline:2px solid var(--acc);outline-offset:2px}
+.op.ok,.op.ok:hover{background:var(--okbg);border-color:var(--ok);font-weight:600}.op.bad,.op.bad:hover{background:var(--badbg);border-color:var(--bad)}
+.op.ok:after,.op.bad:after{margin-left:auto;padding-left:10px;font-weight:700}.op.ok:after{content:"✓ Correct";color:var(--ok);font-size:.8rem}.op.bad:after{content:"✗";color:var(--bad)}
+.op.ok b{color:var(--ok)}.op.bad b{color:var(--bad)}
+#score{display:none!important}
+/* jump-to-question sheet */
+.chips{display:flex;flex-wrap:wrap;gap:8px;padding:8px 10px;margin:8px 0}
+.jback{position:fixed;inset:0;background:rgba(5,8,20,.5);z-index:55;opacity:0;pointer-events:none;transition:opacity .2s}.jback.on{opacity:1;pointer-events:auto}
+.jsheet{position:fixed;left:0;right:0;bottom:0;z-index:60;max-height:68vh;overflow:auto;background:var(--card);border-top:1px solid var(--line);border-radius:22px 22px 0 0;padding:16px 16px calc(18px + env(safe-area-inset-bottom,0px));box-shadow:0 -12px 40px rgba(0,0,0,.35);transform:translateY(105%);visibility:hidden;transition:transform .25s,visibility .25s;max-width:760px;margin:0 auto}
+.jsheet.on{transform:none;visibility:visible}
+.jh{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:12px;position:sticky;top:-16px;background:var(--card);padding:6px 0}.jh span{color:var(--mute);font-size:.85rem}.jh button{margin-left:auto}
+.jg{display:flex;flex-wrap:wrap;gap:7px}
+.hbtns{display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-end}.hero-top .hbtns button{padding:6px 12px;font-size:.82rem}
+/* compact tabs */
+.tabs{padding:4px;gap:4px;margin:10px 0 6px;border-radius:14px}
+.tab{padding:7px 8px;font-size:.8rem;line-height:1.2;border-radius:10px;box-shadow:none}
+.tab small{display:inline;margin:0 0 0 6px;font-size:.72rem;opacity:.85}
+:root:root:root .tab:not(.ghost){box-shadow:0 3px 10px color-mix(in srgb,var(--acc) 40%,transparent);padding:7px 8px}
+.prog{height:5px;margin:6px 2px 2px}
+.acts button{padding:5px 14px;font-size:.82rem}
+main>h1:first-of-type{font-size:clamp(1.1rem,4.4vw,1.45rem);line-height:1.25;margin:2px 0 4px;letter-spacing:-.01em}
+main>h1:first-of-type+.sub{font-size:.88rem;margin-bottom:8px}
+</style>
+</head>
+<body>
+<div class="band"></div>
+<main>
+<h1>Atomic Structure, Electromagnetic Radiation and Atomic Spectra</h1>
+<p class="sub">Practice questions. Show your working on paper, then enter your answers.</p>
+<section class="hero">
+<div class="hero-top"><span class="eyebrow">Interactive lab · play first, then practise</span><span class="hbtns"><button class="ghost" id="resetBtn" type="button">↺ Reset progress</button> <button class="ghost" id="themeBtn" type="button">◐ Theme</button></span></div>
+<canvas id="wave" aria-label="Animated wave that matches the selected wavelength"></canvas>
+<div class="lab-grid">
+<div class="card"><h3>Spectrum explorer</h3>
+<div class="sbar" id="sbar"><i id="mark"></i></div>
+<input type="range" id="lam" min="0" max="1000" value="421" aria-label="Wavelength, logarithmic scale">
+<div class="pre" id="pre"></div>
+<div class="rd"><div><small>Region</small><span class="pill" id="o_reg"></span></div><div><small>Wavelength λ</small><span id="o_l"></span> m</div><div><small>Frequency f</small><span id="o_f"></span> Hz</div><div><small>Photon energy</small><span id="o_e"></span> J<br><span id="o_ev"></span> eV</div></div></div>
+<div class="card"><h3>Hydrogen energy levels</h3>
+<svg id="hsvg" viewBox="0 0 320 285" role="img" aria-label="Hydrogen energy level diagram"></svg>
+<p class="hint" style="margin:4px 0 8px">Tap a starting level, then a final level (not to scale).</p>
+<div class="rd" id="hrd"></div></div>
+</div></section>
+<div class="xp" id="xp">★ 0 correct</div>
+<div class="consts"><b>Constants:</b> c = 3.00 × 10<sup>8</sup> m s<sup>−1</sup> · h = 6.626 × 10<sup>−34</sup> J s · R<sub>H</sub> = 1.097 × 10<sup>7</sup> m<sup>−1</sup> (Rydberg constant) · m<sub>e</sub> = 9.11 × 10<sup>−31</sup> kg · 1 eV = 1.60 × 10<sup>−19</sup> J</div>
+<details class="fms" open><summary>Formulas</summary><div class="fm">
+<span>c = fλ</span><span>E = hf</span>
+<span>E = <span class="fr"><span>hc</span><span>λ</span></span></span>
+<span><span class="fr"><span>1</span><span>λ</span></span> = R<sub>H</sub>(<span class="fr"><span>1</span><span>n<sub>1</sub><sup>2</sup></span></span> − <span class="fr"><span>1</span><span>n<sub>2</sub><sup>2</sup></span></span>)</span>
+<span>E<sub>n</sub> = −<span class="fr"><span>2.18 × 10<sup>−18</sup></span><span>n<sup>2</sup></span></span> J</span>
+<span>ΔE = E<sub>final</sub> − E<sub>initial</sub></span>
+<span>λ = <span class="fr"><span>h</span><span>m<sub>e</sub>v</span></span></span>
+<span>p = <span class="fr"><span>h</span><span>λ</span></span> = <span class="fr"><span>E</span><span>c</span></span></span>
+</div></details>
+<div class="bar"><button id="newset">New random questions</button><button class="ghost" id="checkall">Check all</button><span class="score" id="score" hidden></span></div>
+<div id="qs"></div>
+<p class="hint">Enter numbers as 4.5e-7 or 4.5x10^-7. Answers within 2% are marked correct, so small rounding differences are fine.</p>
+<h1 style="margin-top:40px">Short Answer &amp; Calculations</h1>
+<div class="bar" style="position:static"><button class="ghost" id="ucheck">Check all</button><span class="score" id="uscore"></span></div>
+<div id="u1"></div>
+<h1 style="margin-top:40px">Multiple-Choice Questions</h1>
+<p class="sub">Pick an answer, then press Show answer to check it.</p>
+<div class="bar" style="position:static"><button class="ghost" id="mreset">Reset all</button><span class="score" id="mscore"></span></div>
+<div id="mc"></div>
+</main>
+<script>
+const c=3e8,h=6.626e-34,R=1.097e7,me=9.11e-31,eV=1.6e-19,E0=2.18e-18;
+const rnd=(a,b,d=0)=>+(a+Math.random()*(b-a)).toFixed(d);
+const pick=a=>a[Math.floor(Math.random()*a.length)];
+const S=x=>`<sup>${x}</sup>`,B=x=>`<sub>${x}</sub>`;
+const F=(n,d)=>`<span class="fr"><span>${n}</span><span>${d}</span></span>`;
+function sci(x){if(x===0)return"0";const[m,e]=x.toExponential(2).split("e");return `${m} × 10${S(String(+e).replace("-","−"))}`}
+const cs=`3.00 × 10${S("8")}`,hs=`6.626 × 10${S("−34")}`,ms=`9.11 × 10${S("−31")}`,Es=`2.18 × 10${S("−18")}`,es=`1.60 × 10${S("−19")}`;
+const REG=["Radio","Microwave","Infrared","Visible","Ultraviolet","X-ray","Gamma"];
+function region(l){return l>0.1?0:l>1e-3?1:l>7e-7?2:l>4e-7?3:l>1e-8?4:l>1e-11?5:6}
+const lv=n=>-E0/(n*n);
+const sq=n=>`${n}${S("2")}`;
+const gens=[
+()=>{const [e,lo,hi]=pick([[7,1.5,8],[11,1.5,8],[13,1.5,8],[14,4.6,6.8],[15,1.5,8],[18,1.5,8]]);const fv=rnd(lo,hi,1)*10**e,l=c/fv;
+return{t:`An electromagnetic wave has a frequency of ${sci(fv)} Hz. Calculate its wavelength in metres and identify the region of the electromagnetic spectrum.`,p:[{l:"Wavelength",u:"m",v:l},{l:"Region",ch:REG,v:region(l)}],w:[`λ = ${F("c","f")} = ${F(`${cs} m s${S("−1")}`,`${sci(fv)} Hz`)} = ${sci(l)} m`,`Region: ${REG[region(l)]}`]}},
+()=>{const n=rnd(300,700,0),l=n*1e-9,f=c/l,E=h*f;return{t:`Radiation has a wavelength of ${n} nm. Calculate (a) its frequency and (b) the energy of one photon in joules.`,p:[{l:"(a) Frequency",u:"Hz",v:f},{l:"(b) Energy",u:"J",v:E}],w:[`(a) f = ${F("c","λ")} = ${F(`${cs} m s${S("−1")}`,`${n} × 10${S("−9")} m`)} = ${sci(f)} Hz`,`(b) E = hf = (${hs} J s)(${sci(f)} Hz) = ${sci(E)} J`]}},
+()=>{const n=rnd(400,800,1),l=n*1e-9,E=h*c/l;return{t:`A laser emits light of wavelength ${n} nm. Calculate the energy of one photon in joules and in electronvolts.`,p:[{l:"Energy",u:"J",v:E},{l:"Energy",u:"eV",v:E/eV}],w:[`E = ${F("hc","λ")} = ${F(`(${hs} J s)(${cs} m s${S("−1")})`,`${n} × 10${S("−9")} m`)} = ${sci(E)} J`,`E(eV) = ${F(`${sci(E)} J`,`${es} J/eV`)} = ${(E/eV).toFixed(2)} eV`]}},
+()=>{const N=rnd(1,9,2)*1e19,f=rnd(3,8,2)*1e14,t=rnd(5,20,1),E=N*h*f*t;return{t:`A source emits ${sci(N)} photons per second, each with a frequency of ${sci(f)} Hz. Calculate the total energy emitted in ${t} seconds.`,p:[{l:"Total energy",u:"J",v:E}],w:[`Energy per photon: E = hf = (${hs} J s)(${sci(f)} Hz) = ${sci(h*f)} J`,`Number of photons = (${sci(N)} s${S("−1")})(${t} s) = ${sci(N*t)}`,`Total energy = ${sci(N*t)} × ${sci(h*f)} J = ${sci(E)} J`]}},
+()=>{const a=pick([1,2,3]),b=a+rnd(1,3,0),k=R*(1/a**2-1/b**2),l=1/k;return{t:`In a hydrogen atom, an electron falls from n = ${b} to n = ${a}. Using ${F("1","λ")} = R${B("H")}(${F("1",`n${B("1")}${S("2")}`)} − ${F("1",`n${B("2")}${S("2")}`)}), where n${B("1")} is the lower level and n${B("2")} is the higher level, calculate the wavelength of the emitted photon in metres and nanometres.`,p:[{l:"Wavelength",u:"m",v:l},{l:"Wavelength",u:"nm",v:l*1e9}],w:[`${F("1","λ")} = (1.097 × 10${S("7")} m${S("−1")})(${F("1",sq(a))} − ${F("1",sq(b))}) = ${sci(k)} m${S("−1")}`,`λ = ${F("1",`${sci(k)} m${S("−1")}`)} = ${sci(l)} m = ${(l*1e9).toFixed(1)} nm`]}},
+()=>{const a=pick([1,2,3]),b=a+rnd(1,3,0),dE=lv(b)-lv(a),l=h*c/Math.abs(dE);return{t:`Calculate the wavelength of light emitted when an electron in hydrogen falls from n = ${b} to n = ${a}, using E${B("n")} = −${F(`${Es}`,`n${S("2")}`)} J.`,p:[{l:"Wavelength",u:"nm",v:l*1e9}],w:[`E${B(b)} = −${F(Es,sq(b))} = ${sci(lv(b))} J,  E${B(a)} = −${F(Es,sq(a))} = ${sci(lv(a))} J`,`ΔE = ${sci(dE)} J; the negative sign indicates emission.`,`λ = hc/|ΔE| = ${F(`(${hs})(${cs})`,`${sci(Math.abs(dE))}`)} = ${sci(l)} m = ${(l*1e9).toFixed(1)} nm`]}},
+()=>{let i=rnd(1,5,0),f=rnd(1,6,0);while(f===i)f=rnd(1,6,0);const d=lv(f)-lv(i);return{t:`The energy of an electron in a hydrogen atom is given by E${B("n")} = −${F(Es,`n${S("2")}`)} J. Calculate the energy change when an electron moves from n = ${i} to n = ${f}. State whether energy is absorbed or emitted.`,p:[{l:"ΔE (with sign)",u:"J",v:d},{l:"Energy is",ch:["Absorbed","Emitted"],v:d>0?0:1}],w:[`ΔE = E${B("final")} − E${B("initial")} = (${sci(lv(f))}) − (${sci(lv(i))})`,`ΔE = ${sci(d)} J`,d>0?"ΔE is positive, so energy is absorbed.":"ΔE is negative, so energy is emitted."]}},
+()=>{const n=pick([1,2,3]),E=E0/n**2;return{t:`Calculate the minimum energy, in joules and electronvolts, required to ionise a hydrogen atom from the level n = ${n}.`,p:[{l:"Energy",u:"J",v:E},{l:"Energy",u:"eV",v:E/eV}],w:[`Ionisation means n → ∞, where E = 0.`,`ΔE = 0 − (−${F(Es,sq(n))}) = ${sci(E)} J`,`E(eV) = ${F(`${sci(E)} J`,`${es} J/eV`)} = ${(E/eV).toFixed(2)} eV`]}},
+()=>{const v=rnd(1,6,2)*1e6,l=h/(me*v);return{t:`An electron moves at ${sci(v)} m s${S("−1")}. Calculate its de Broglie wavelength.`,p:[{l:"Wavelength",u:"m",v:l}],w:[`λ = ${F("h",`m${B("e")}v`)} = ${F(`${hs} J s`,`(${ms} kg)(${sci(v)} m s${S("−1")})`)} = ${sci(l)} m`]}},
+()=>{const E=rnd(1.5,9,2)*1e-19,f=E/h,l=c/f,p=E/c;return{t:`A photon has an energy of ${sci(E)} J. Calculate its frequency and wavelength. Then calculate the momentum of the photon.`,p:[{l:"Frequency",u:"Hz",v:f},{l:"Wavelength",u:"m",v:l},{l:"Momentum",u:`kg m s${S("−1")}`,v:p}],w:[`f = ${F("E","h")} = ${F(`${sci(E)} J`,`${hs} J s`)} = ${sci(f)} Hz`,`λ = ${F("c","f")} = ${F(`${cs} m s${S("−1")}`,`${sci(f)} Hz`)} = ${sci(l)} m`,`p = ${F("h","λ")} = ${F(`${hs} J s`,`${sci(l)} m`)} = ${sci(p)} kg m s${S("−1")}`]}}
+];
+function parse(s){s=s.trim().toLowerCase().replace(/\s/g,"").replace(/−/g,"-").replace(/[×x*]10\^?\(?(-?\d+)\)?/,"e$1");const n=Number(s);return isNaN(n)||s===""?null:n}
+let Q=[];
+function build(restore){if(!restore)PERM=null;Q=restore||gens.map(g=>g());document.querySelectorAll("#u1 .gen").forEach(x=>x.remove());const box=document.getElementById("qs");box.innerHTML="";
+Q.forEach((q,i)=>{const d=document.createElement("section");d.className="q gen";
+d.innerHTML=`<h2>Question ${i+1}</h2><p class="eq">${q.t}</p>`+q.p.map((p,j)=>`<div class="row" id="r${i}_${j}"><label for="i${i}_${j}">${p.l}</label>${p.ch?`<select id="i${i}_${j}"><option value="">Choose…</option>${p.ch.map((o,k)=>`<option value="${k}">${o}</option>`).join("")}</select>`:`<input id="i${i}_${j}" inputmode="text" autocomplete="off" placeholder="e.g. 4.5e-7"><span class="u">${p.u}</span>`}<span class="fb"></span></div>`).join("")+`<div class="acts"><button data-c="${i}">Check</button><button class="ghost" data-w="${i}">Show working</button></div><div class="work" id="w${i}">${q.w.map(x=>`<div class="eq">${x}</div>`).join("")}</div>`;
+box.appendChild(d)});upd();mixGen()}
+function check(i){const q=Q[i];q.s=q.s||[];q.p.forEach((p,j)=>{const row=document.getElementById(`r${i}_${j}`),el=document.getElementById(`i${i}_${j}`),fb=row.querySelector(".fb");let ok=false,ans;
+if(p.ch){ok=el.value!==""&&+el.value===p.v;ans=p.ch[p.v]}else{const v=parse(el.value);ok=v!==null&&Math.abs(v-p.v)<=Math.abs(p.v)*0.02;ans=sci(p.v)+" "+p.u;if(v===null&&el.value.trim()){fb.textContent="Not a number. Try 4.5e-7.";row.className="row bad";q.s[j]=0;return}}
+q.s[j]=ok?1:0;row.className="row "+(ok?"ok":"bad");fb.innerHTML=ok?"Correct.":"Not quite. Answer: "+ans});upd()}
+function upd(){let t=0,g=0;Q.forEach(q=>{t+=q.p.length;g+=(q.s||[]).reduce((a,b)=>a+b,0)});document.getElementById("score").textContent=`${g} / ${t} answers correct`}
+document.getElementById("qs").addEventListener("click",e=>{const b=e.target.closest("button");if(!b)return;if(b.dataset.c!==undefined)check(+b.dataset.c);if(b.dataset.w!==undefined)document.getElementById("w"+b.dataset.w).classList.toggle("on")});
+document.getElementById("u1").addEventListener("click",e=>{const b=e.target.closest("button");if(!b)return;if(b.dataset.c!==undefined)check(+b.dataset.c);if(b.dataset.w!==undefined)document.getElementById("w"+b.dataset.w).classList.toggle("on")});
+function mixGen(){const u=document.getElementById("u1"),qs=document.getElementById("qs");if(!u||!u.children.length)return;
+const list=[...qs.querySelectorAll("section.q")];if(!PERM||PERM.length!==list.length)PERM=list.map((_,i)=>i).sort(()=>Math.random()-.5);const g=PERM.map(i=>list[i]),us=[...u.querySelectorAll(":scope>section.q:not(.gen)")],step=Math.floor(us.length/Math.max(g.length,1));
+g.forEach((x,k)=>{const ref=us[Math.min(us.length-1,k*step+2)];ref.before(x)});
+[...u.querySelectorAll(":scope>section.q")].forEach((x,n)=>{x.querySelector("h2").textContent="Question "+(n+1)+(x.classList.contains("gen")?" · Randomised":"")});
+window.nav&&nav()}
+document.getElementById("newset").onclick=()=>{if(Q.some(q=>q.s)&&!confirm("Replace the randomised questions with new ones? Your answers to them will be cleared."))return;build();scrollTo(0,0)};
+document.getElementById("checkall").onclick=()=>Q.forEach((_,i)=>check(i));
+const SKEY="atomic-quiz-v1";let SAVED=null;try{SAVED=JSON.parse(localStorage.getItem(SKEY)||"null")}catch(e){}
+if(!SAVED||!Array.isArray(SAVED.gen)||SAVED.gen.length!==gens.length)SAVED=null;
+let PERM=SAVED&&Array.isArray(SAVED.perm)?SAVED.perm:null;
+build(SAVED&&SAVED.gen);
+</script>
+<script>
+const U=[
+["Which Greek philosopher suggested that matter is made of indivisible particles called <i>atomos</i>?","Democritus."],
+["Who discovered the electron in 1897 using cathode rays?","J.J. Thomson."],
+["Which radioactive emission (α, β or γ) is not deflected by an electric field?","Gamma (γ) rays; they carry no charge."],
+["The atomic number (Z) equals the number of which particle in the nucleus?","Protons."],
+["Define mass number (A).","The total number of protons plus neutrons in the nucleus."],
+["Which scientist discovered the neutron in 1932?","James Chadwick."],
+["An alpha particle is the nucleus of which isotope?","A helium-4 nucleus (⁴₂He): two protons and two neutrons."],
+["How many protons and neutrons are in ²⁷₁₃Al?","13 protons and 14 neutrons.",[["Protons","",13],["Neutrons","",14]]],
+["Define isotopes and give one example.","Atoms of the same element (same Z) with different numbers of neutrons, e.g. ¹²C and ¹⁴C."],
+["What is the SI unit of frequency?","Hertz (Hz = s⁻¹)."],
+["Which subshell corresponds to ℓ = 1?","The p subshell."],
+["What is the maximum number of electrons an atomic orbital can hold?","Two, with opposite spins.",[["Electrons","",2]]],
+["Write the ground-state electron configuration of sodium (Z = 11).","1s² 2s² 2p⁶ 3s¹ (or [Ne] 3s¹)."],
+["Which principle states that no two electrons in an atom can have the same four quantum numbers?","Pauli's exclusion principle."],
+["How many groups and periods are in the modern periodic table?","18 groups and 7 periods.",[["Groups","",18],["Periods","",7]]],
+["What did Rutherford conclude from most α-particles passing through gold foil while a few bounced back?","Most of the atom is empty space; the positive charge and nearly all the mass are in a tiny, dense nucleus."],
+["Two nitrogen–oxygen compounds contain 1.750 g and 0.875 g of N per 1.000 g of O. Show that this illustrates the law of multiple proportions.","For the same fixed mass of oxygen (1.000 g), the masses of nitrogen combine in the ratio 1.750 : 0.875 = 2 : 1, a simple whole-number ratio."],
+["What did Millikan's oil-drop experiment measure, and how was it used to find the electron's mass?","It measured the electron's charge. Combining its magnitude, |e| = 1.602 × 10⁻¹⁹ C, with Thomson's mass-to-charge ratio gives mₑ = (m/|e|) × |e| = (5.686 × 10⁻¹² kg/C)(1.602 × 10⁻¹⁹ C) = 9.109 × 10⁻³¹ kg."],
+["Water is 11.2% H and 88.8% O by mass. How many grams of each are obtained from 25.0 g of water?","H = 0.112 × 25.0 = 2.80 g; O = 0.888 × 25.0 = 22.2 g.",[["Hydrogen","g",2.80],["Oxygen","g",22.2]]],
+["Chlorine has ³⁵Cl (34.969 amu, 75.77%) and ³⁷Cl (36.966 amu, 24.23%). Calculate its atomic mass.","26.50 + 8.96 = 35.45 amu.",[["Atomic mass","amu",35.45]]],
+["Calculate the frequency of light with a wavelength of 500 nm.","ν = c/λ = (3.0 × 10⁸)/(5.0 × 10⁻⁷) = 6.0 × 10¹⁴ Hz.",[["Frequency","Hz",6.0e14]]],
+["Calculate the energy of one photon with frequency 6.0 × 10¹⁴ Hz.","E = hν = 6.63 × 10⁻³⁴ × 6.0 × 10¹⁴ = 3.98 × 10⁻¹⁹ J.",[["Energy","J",3.98e-19]]],
+["Violet (≈ 400 nm) or red (≈ 700 nm): which has photons of higher energy? Explain.","Violet. E = hc/λ, so a shorter wavelength means higher photon energy."],
+["Using the Bohr model for a hydrogen atom, calculate the radius of the n = 3 orbit.","rₙ = a₀n² = (0.529 Å)(3²) = 4.76 Å.",[["Radius","Å",4.76]]],
+["What are the allowed values of ℓ and mℓ when n = 3?","ℓ = 0, 1, 2. For ℓ = 0, mℓ = 0; ℓ = 1, mℓ = −1, 0, +1; ℓ = 2, mℓ = −2 to +2."],
+["How many orbitals are in the level n = 4? List the subshells.","n² = 16: 4s (1), 4p (3), 4d (5), 4f (7).",[["Orbitals","",16]]],
+["What is the maximum number of electrons in a d subshell, and why?","10: five orbitals (2ℓ + 1 = 5), each holding 2 electrons.",[["Electrons","",10]]],
+["Write the electron configuration of chlorine (Z = 17) and state its valence electrons.","1s² 2s² 2p⁶ 3s² 3p⁵ ([Ne] 3s² 3p⁵); 7 valence electrons.",[["Valence e⁻","",7]]],
+["Write the electron configuration of iron (Z = 26) and state how many unpaired electrons Fe has.","[Ar] 4s² 3d⁶; 4 unpaired electrons.",[["Unpaired e⁻","",4]]],
+["The expected configuration of chromium is [Ar] 4s² 3d⁴. Give the observed one and explain.","Observed: [Ar] 3d⁵ 4s¹. The 4s and 3d subshells are close in energy; the observed arrangement has a slightly lower total energy. The half-filled 3d subshell contributes to this stabilization, but the explanation is the relative energies of the subshells—not a rule that half-filled subshells always fill first."],
+["Calculate the energy of the hydrogen electron for n = 1 and n = 2.","E₁ = −2.18 × 10⁻¹⁸ J; E₂ = −2.18 × 10⁻¹⁸/4 = −5.45 × 10⁻¹⁹ J.",[["E₁","J",-2.18e-18],["E₂","J",-5.45e-19]]],
+["Calculate the wavelength of the photon emitted when a hydrogen electron falls from n = 4 to n = 2. Which region and series?","ΔE = −2.18 × 10⁻¹⁸(1/4 − 1/16) = −4.09 × 10⁻¹⁹ J; λ = hc/|ΔE| ≈ 486.1 nm. Visible light, Balmer series.",[["Wavelength","nm",486.1]]],
+["Which series results from transitions ending at n = 1, and in which region does it appear?","The Lyman series, in the ultraviolet."],
+["Calculate the de Broglie wavelength of an electron moving at 2.00 × 10⁶ m/s.","λ = h/(mv) = 6.63 × 10⁻³⁴/(9.11 × 10⁻³¹ × 2.00 × 10⁶) = 3.64 × 10⁻¹⁰ m = 0.364 nm.",[["Wavelength","nm",0.364]]],
+["Removing an electron from potassium requires 3.69 × 10⁻¹⁹ J. Find the threshold frequency. Will incident light of wavelengths 520 nm and 620 nm produce photoelectrons?","ν₀ = 3.69 × 10⁻¹⁹/6.63 × 10⁻³⁴ = 5.57 × 10¹⁴ Hz. At 520 nm, ν = 5.77 × 10¹⁴ Hz > ν₀, so photoelectrons are emitted. At 620 nm, ν = 4.84 × 10¹⁴ Hz < ν₀, so no photoelectrons are emitted.",[["Threshold ν₀","Hz",5.57e14]]],
+["For the light in Question 35 that does eject electrons, find the kinetic energy and speed of the electrons.","KE = hν − hν₀ ≈ 3.83 × 10⁻¹⁹ − 3.69 × 10⁻¹⁹ ≈ 1.4 × 10⁻²⁰ J; v = √(2KE/m) ≈ 1.7 × 10⁵ m/s.",[["KE","J",1.35e-20,0.06],["Speed","m/s",1.7e5,0.05]]],
+["Boron has ¹⁰B (10.013 amu) and ¹¹B (11.009 amu); its atomic mass is 10.811 amu. Find each isotope's percentage abundance.","10.013x + 11.009(1 − x) = 10.811 gives x = 0.199. ¹⁰B ≈ 19.9%, ¹¹B ≈ 80.1%.",[["¹⁰B","%",19.9],["¹¹B","%",80.1]]],
+["A period 3 element has successive ionization energies (kJ/mol) 1012, 1903, 2910, 4956, 6278, 22 330. Identify it and write its configuration.","The big jump after IE₅ means 5 valence electrons: phosphorus, 1s² 2s² 2p⁶ 3s² 3p³."],
+["Which quantum-number sets (n, ℓ, mℓ, mₛ) are not allowed? (a) (2, 2, 1, +½) (b) (3, 1, −1, −½) (c) (4, 3, −3, +½) (d) (3, 0, 1, +½)","(a) not allowed: ℓ must be less than n. (b) allowed. (c) allowed. (d) not allowed: when ℓ = 0, mℓ can only be 0."],
+["Why is the first ionization energy of oxygen lower than that of nitrogen, though oxygen is further right in the period?","In nitrogen (2p³) each 2p orbital holds one electron. In oxygen (2p⁴) one orbital holds a pair, and the repulsion makes that electron easier to remove."],
+["Rank Ca, Mg and Sr in order of decreasing atomic radius and explain.","Sr &gt; Ca &gt; Mg. Radius increases down a group because n increases (more shells), outweighing the rise in nuclear charge."],
+["Atomic radius drops from 186 pm (Na) to 160 pm (Mg) but only from 125 pm (Cr) to 124 pm (Mn). Explain.","Na to Mg: the added electron enters the same principal shell, while nuclear charge increases, so effective nuclear charge rises appreciably. Cr to Mn: the added electron enters the 3d subshell, not a new outer shell. 3d electrons shield one another imperfectly, so the effective nuclear charge and radius change only modestly; shielding does not exactly cancel the nuclear-charge increase."],
+["Calculate the energy and wavelength of the photon emitted when a hydrogen electron falls from n = 5 to n = 2.","ΔE = −2.18 × 10⁻¹⁸(1/4 − 1/25) = −4.58 × 10⁻¹⁹ J; λ ≈ 434 nm (visible, Balmer).",[["Energy emitted","J",4.58e-19],["Wavelength","nm",434]]],
+["Calculate the mass equivalent E/c² of a photon with wavelength 500 nm. (A photon has zero rest mass.)","mₑq = E/c² = h/(λc) = 6.626 × 10⁻³⁴/(5.00 × 10⁻⁷ × 3.00 × 10⁸) = 4.42 × 10⁻³⁶ kg. This is the energy-equivalent mass, not the photon's rest mass.",[["Mass equivalent","kg",4.42e-36]]],
+["An electron's speed is known with an uncertainty Δv = 1.0 × 10⁵ m/s. Use Heisenberg's uncertainty principle to find the minimum uncertainty in its position.","Using ΔxΔp ≥ h/(4π) and Δp = mₑΔv: Δx ≥ h/(4πmₑΔv) = 6.626 × 10⁻³⁴/(4π × 9.11 × 10⁻³¹ × 1.0 × 10⁵) ≈ 5.79 × 10⁻¹⁰ m.",[["Δx","m",5.79e-10]]],
+["Using Bohr's model, calculate the electron's speed in the n = 2 orbit of hydrogen.","r = 4 × 0.53 Å = 2.12 × 10⁻¹⁰ m; v = nh/(2πmr) ≈ 1.09 × 10⁶ m/s.",[["Speed","m/s",1.09e6]]],
+["Calculate the energy to ionize one mole of ground-state hydrogen atoms, in kJ/mol.","2.18 × 10⁻¹⁸ J × 6.022 × 10²³ ≈ 1.31 × 10⁶ J/mol ≈ 1313 kJ/mol.",[["Energy","kJ/mol",1313]]],
+["Light of frequency 1.0 × 10¹⁵ Hz strikes a metal with threshold frequency 7.5 × 10¹⁴ Hz. Find the KE and speed of the ejected electrons.","KE = h(ν − ν₀) = 6.63 × 10⁻³⁴ × 2.5 × 10¹⁴ = 1.66 × 10⁻¹⁹ J; v = √(2KE/m) ≈ 6.0 × 10⁵ m/s.",[["KE","J",1.66e-19],["Speed","m/s",6.0e5]]],
+["An element has the configuration [Kr] 4d¹⁰ 5s² 5p⁴. Identify it and give its atomic number, group and period.","Tellurium (Te): Z = 36 + 10 + 2 + 4 = 52, Group 16 (VIA), Period 5.",[["Atomic number","",52]]],
+["For the last electron added in chlorine (Hund's rule and Aufbau), give n, ℓ, mℓ and mₛ. Label the three p boxes mℓ = −1, 0, +1 left to right, with ↑ as +½.","Cl ends in 3p⁵. Three electrons go in singly (all ↑); the 4th and 5th pair up in the mℓ = −1 and 0 boxes. Last electron: n = 3, ℓ = 1, mℓ = 0, mₛ = −½."]
+];
+const LV=[];
+const US=[],fmt=x=>Math.abs(x)>=1e3||Math.abs(x)<1e-2?x.toExponential(2):String(x);
+document.getElementById("u1").innerHTML=U.map((q,i)=>{const lv=LV.find(l=>l[0]===i+1);return(lv?`<h2 class="lvl">${lv[1]}</h2>`:"")+`<section class="q"><h2>Question ${i+1}</h2><p>${q[0]}</p>`+(q[2]||[]).map((p,j)=>`<div class="row" id="u${i}_${j}"><label for="ui${i}_${j}">${p[0]}</label><input id="ui${i}_${j}" autocomplete="off" placeholder="e.g. 4.5e-7"><span class="u">${p[1]}</span><span class="fb"></span></div>`).join("")+`<div class="acts">${q[2]?`<button data-uc="${i}">Check</button>`:""}<button class="ghost" data-uw="${i}">Show answer</button></div><div class="work" id="uw${i}">${q[1]}</div></section>`}).join("");
+function ucheck(i){US[i]=[];(U[i][2]||[]).forEach((p,j)=>{const row=document.getElementById(`u${i}_${j}`),el=document.getElementById(`ui${i}_${j}`),fb=row.querySelector(".fb"),v=parse(el.value),ok=v!==null&&Math.abs(v-p[2])<=Math.abs(p[2])*(p[3]||.02);US[i][j]=ok?1:0;row.className="row "+(ok?"ok":"bad");fb.textContent=ok?"Correct.":(v===null&&el.value.trim()?"Not a number. Try 4.5e-7.":"Not quite. Answer: "+fmt(p[2])+" "+p[1])});uupd()}
+function uupd(){let t=0,g=0;U.forEach((q,i)=>{t+=(q[2]||[]).length;g+=(US[i]||[]).reduce((a,b)=>a+b,0)});void 0}
+document.getElementById("u1").addEventListener("click",e=>{const b=e.target.closest("button");if(!b)return;if(b.dataset.uc!==undefined)ucheck(+b.dataset.uc);if(b.dataset.uw!==undefined)document.getElementById("uw"+b.dataset.uw).classList.toggle("on")});
+document.getElementById("ucheck").onclick=()=>U.forEach((q,i)=>q[2]&&ucheck(i));
+uupd();
+</script>
+<script>
+const MS=[
+{t:"Calculations (30 questions)",P:{1:"Part I: Electromagnetic Radiation and Photon Energy",9:"Part II: Wave-Particle Duality and de Broglie",15:"Part III: Bohr Model and Hydrogen Spectrum",23:"Part IV: Photoelectric Effect and Orbital Capacity"},d:[
+"What is the frequency of light with a wavelength of 500 nm (5.00 × 10⁻⁷ m)? (c = 3.00 × 10⁸ m/s)|1.67 × 10¹⁵ Hz|6.00 × 10¹⁴ Hz|1.50 × 10¹⁵ Hz|3.00 × 10¹⁴ Hz|B|ν = c/λ = 3.00 × 10⁸ / 5.00 × 10⁻⁷ = 6.00 × 10¹⁴ Hz",
+"What is the energy of one photon of ultraviolet radiation with a frequency of 2.5 × 10¹⁵ Hz? (h = 6.63 × 10⁻³⁴ J·s)|1.66 × 10⁻¹⁸ J|2.65 × 10⁻¹⁹ J|3.32 × 10⁻¹⁸ J|1.66 × 10⁻¹⁹ J|A|E = hν = 6.63 × 10⁻³⁴ × 2.5 × 10¹⁵ = 1.6575 × 10⁻¹⁸ J",
+"Calculate the wavelength of a photon with energy 3.315 × 10⁻¹⁹ J. (h = 6.63 × 10⁻³⁴ J·s, c = 3.00 × 10⁸ m/s)|400 nm|500 nm|600 nm|700 nm|C|λ = hc/E = (6.63 × 10⁻³⁴ × 3.00 × 10⁸)/(3.315 × 10⁻¹⁹) = 6.00 × 10⁻⁷ m = 600 nm",
+"What is the wave number (the reciprocal of wavelength, 1/λ) of light with a wavelength of 500 nm?|2.0 × 10⁴ cm⁻¹|2.0 × 10⁶ m⁻¹|5.0 × 10⁵ m⁻¹|5.0 × 10³ cm⁻¹|B|1/(500 × 10⁻⁹ m) = 2.0 × 10⁶ m⁻¹",
+"What is the energy of one mole of photons of frequency 5.0 × 10¹⁴ Hz? (h = 6.63 × 10⁻³⁴ J·s, N_A = 6.022 × 10²³ mol⁻¹)|99.5 kJ/mol|199 kJ/mol|398 kJ/mol|500 kJ/mol|B|E = N_A·hν = 6.022 × 10²³ × 6.63 × 10⁻³⁴ × 5.0 × 10¹⁴ = 1.99 × 10⁵ J/mol = 199 kJ/mol",
+"What is the wavelength of an electromagnetic wave with frequency 1.5 × 10¹⁰ Hz? (c = 3.0 × 10⁸ m/s)|0.02 m|0.20 m|2.00 m|20.0 m|A|λ = c/ν = 3.0 × 10⁸ / 1.5 × 10¹⁰ = 0.02 m",
+"Calculate the energy of one mole of photons with wavelength 300 nm. (h = 6.63 × 10⁻³⁴ J·s, c = 3.0 × 10⁸ m/s, N_A = 6.022 × 10²³ mol⁻¹)|199 kJ/mol|299 kJ/mol|399 kJ/mol|499 kJ/mol|C|E = N_A·hc/λ = (6.022 × 10²³ × 6.63 × 10⁻³⁴ × 3.0 × 10⁸)/(3.00 × 10⁻⁷) = 3.99 × 10⁵ J/mol",
+"A hydrogen electron emits a photon of wavelength 1.215 × 10⁻⁷ m. What is the photon's energy? (h = 6.63 × 10⁻³⁴ J·s, c = 3.0 × 10⁸ m/s)|1.64 × 10⁻¹⁸ J|2.18 × 10⁻¹⁹ J|3.31 × 10⁻¹⁸ J|5.42 × 10⁻¹⁹ J|A|E = hc/λ = (6.63 × 10⁻³⁴ × 3.0 × 10⁸)/(1.215 × 10⁻⁷) = 1.636 × 10⁻¹⁸ J",
+"What is the de Broglie wavelength of an electron moving at 2.0 × 10⁶ m/s? (m = 9.11 × 10⁻³¹ kg, h = 6.63 × 10⁻³⁴ J·s)|1.82 × 10⁻¹⁰ m|3.64 × 10⁻¹⁰ m|7.28 × 10⁻¹⁰ m|1.45 × 10⁻⁹ m|B|λ = h/(mv) = 6.63 × 10⁻³⁴ / (9.11 × 10⁻³¹ × 2.0 × 10⁶) = 3.64 × 10⁻¹⁰ m",
+"Calculate the momentum of a neutron moving at 1.0 × 10³ m/s. (mass ≈ 1.67 × 10⁻²⁷ kg)|1.67 × 10⁻²⁴ kg·m/s|1.67 × 10⁻³⁰ kg·m/s|3.34 × 10⁻²⁴ kg·m/s|6.63 × 10⁻²⁷ kg·m/s|A|p = mv = 1.67 × 10⁻²⁷ × 1.0 × 10³ = 1.67 × 10⁻²⁴ kg·m/s",
+"What is the wavelength of a baseball of mass 0.145 kg travelling at 40.0 m/s? (h = 6.63 × 10⁻³⁴ J·s)|1.14 × 10⁻³⁴ m|2.28 × 10⁻³³ m|4.56 × 10⁻³⁵ m|1.14 × 10⁻³² m|A|λ = h/(mv) = 6.63 × 10⁻³⁴ / (0.145 × 40.0) = 1.14 × 10⁻³⁴ m",
+"Calculate the velocity of an electron whose de Broglie wavelength is 1.0 × 10⁻⁹ m. (m = 9.11 × 10⁻³¹ kg, h = 6.63 × 10⁻³⁴ J·s)|3.64 × 10⁵ m/s|7.28 × 10⁵ m/s|1.45 × 10⁶ m/s|2.90 × 10⁶ m/s|B|v = h/(mλ) = 6.63 × 10⁻³⁴ / (9.11 × 10⁻³¹ × 1.0 × 10⁻⁹) = 7.28 × 10⁵ m/s",
+"An alpha particle has momentum 2.0 × 10⁻¹⁹ kg·m/s. What is its de Broglie wavelength? (h = 6.63 × 10⁻³⁴ J·s)|3.32 × 10⁻¹⁵ m|1.66 × 10⁻¹⁴ m|6.63 × 10⁻¹⁵ m|3.32 × 10⁻¹⁴ m|A|λ = h/p = 6.63 × 10⁻³⁴ / 2.0 × 10⁻¹⁹ = 3.315 × 10⁻¹⁵ m",
+"If the uncertainty in an electron's position is 1.0 × 10⁻¹⁰ m, what is the minimum uncertainty in its momentum? (h = 6.63 × 10⁻³⁴ J·s, Δx·Δp ≥ h/4π)|2.64 × 10⁻²⁵ kg·m/s|5.28 × 10⁻²⁵ kg·m/s|1.05 × 10⁻²⁴ kg·m/s|6.63 × 10⁻²⁴ kg·m/s|B|Δp ≥ h/(4πΔx) = 6.63 × 10⁻³⁴ / (4 × 3.1416 × 1.0 × 10⁻¹⁰) = 5.28 × 10⁻²⁵ kg·m/s",
+"Calculate the energy of an electron in the n = 3 Bohr orbit of hydrogen. (R_H = 2.18 × 10⁻¹⁸ J)|−7.27 × 10⁻¹⁹ J|−2.42 × 10⁻¹⁹ J|−5.45 × 10⁻¹⁹ J|−1.09 × 10⁻¹⁸ J|B|E₃ = −R_H/n² = −2.18 × 10⁻¹⁸ / 9 = −2.42 × 10⁻¹⁹ J",
+"Find the energy change when an electron goes from n = 4 to n = 2 in hydrogen. (R_H = 2.18 × 10⁻¹⁸ J)|−2.05 × 10⁻¹⁹ J|−4.09 × 10⁻¹⁹ J|−5.45 × 10⁻¹⁹ J|−8.18 × 10⁻¹⁹ J|B|ΔE = −2.18 × 10⁻¹⁸ (1/2² − 1/4²) = −2.18 × 10⁻¹⁸ (3/16) = −4.09 × 10⁻¹⁹ J",
+"What is the frequency of the photon emitted when an electron drops from n = 3 to n = 1 in hydrogen? (R_H = 2.18 × 10⁻¹⁸ J, h = 6.63 × 10⁻³⁴ J·s)|1.46 × 10¹⁵ Hz|2.92 × 10¹⁵ Hz|4.38 × 10¹⁵ Hz|5.84 × 10¹⁵ Hz|B|ΔE = 2.18 × 10⁻¹⁸ (1 − 1/9) = 1.938 × 10⁻¹⁸ J; ν = ΔE/h = 2.92 × 10¹⁵ Hz",
+"Calculate the radius of the second Bohr orbit (n = 2) of hydrogen. (rₙ = 0.529 × n² Å)|0.529 Å|1.058 Å|2.116 Å|4.761 Å|C|r₂ = 0.529 × 2² = 2.116 Å",
+"Calculate the energy (kJ/mol) needed to remove the electron from the ground state of hydrogen. (R_H = 2.18 × 10⁻¹⁸ J/atom, N_A = 6.022 × 10²³ mol⁻¹)|656 kJ/mol|984 kJ/mol|1312 kJ/mol|2624 kJ/mol|C|2.18 × 10⁻¹⁸ × 6.022 × 10²³ = 1.312 × 10⁶ J/mol = 1312 kJ/mol",
+"Find the wavelength of the photon emitted in the n = 5 to n = 2 transition in hydrogen. (R_H = 2.18 × 10⁻¹⁸ J, h = 6.63 × 10⁻³⁴, c = 3.0 × 10⁸)|365 nm|434 nm|486 nm|656 nm|B|ΔE = 4.578 × 10⁻¹⁹ J; λ = hc/ΔE = 4.34 × 10⁻⁷ m = 434 nm",
+"What is the frequency of light emitted when an electron falls from n = 4 to n = 3 in hydrogen? (R_H = 2.18 × 10⁻¹⁸ J, h = 6.63 × 10⁻³⁴ J·s)|8.01 × 10¹³ Hz|1.60 × 10¹⁴ Hz|3.21 × 10¹⁴ Hz|6.42 × 10¹⁴ Hz|B|ΔE = 1.06 × 10⁻¹⁹ J; ν = ΔE/h = 1.60 × 10¹⁴ Hz",
+"Calculate the angular momentum of an electron in the n = 2 Bohr orbit (L = nh/2π). (h = 6.63 × 10⁻³⁴ J·s)|1.06 × 10⁻³⁴ J·s|2.11 × 10⁻³⁴ J·s|4.22 × 10⁻³⁴ J·s|6.63 × 10⁻³⁴ J·s|B|L = 2 × 6.63 × 10⁻³⁴ / (2 × 3.1416) = 2.11 × 10⁻³⁴ J·s",
+"Calculate the threshold frequency of a metal with work function 3.3 × 10⁻¹⁹ J. (h = 6.63 × 10⁻³⁴ J·s)|2.49 × 10¹⁴ Hz|4.98 × 10¹⁴ Hz|9.95 × 10¹⁴ Hz|1.99 × 10¹⁵ Hz|B|ν₀ = Φ/h = 3.3 × 10⁻¹⁹ / 6.63 × 10⁻³⁴ = 4.98 × 10¹⁴ Hz",
+"Light of wavelength 400 nm strikes a metal with work function 3.0 × 10⁻¹⁹ J. What is the kinetic energy of the ejected electron? (h = 6.63 × 10⁻³⁴, c = 3.0 × 10⁸)|1.97 × 10⁻¹⁹ J|3.94 × 10⁻¹⁹ J|4.97 × 10⁻¹⁹ J|7.97 × 10⁻¹⁹ J|A|E_photon = hc/λ = 4.97 × 10⁻¹⁹ J; KE = E_photon − Φ = 1.97 × 10⁻¹⁹ J",
+"What is the kinetic energy of an electron ejected by light of frequency 1.0 × 10¹⁵ Hz from a metal with threshold frequency 5.0 × 10¹⁴ Hz? (h = 6.63 × 10⁻³⁴ J·s)|1.66 × 10⁻¹⁹ J|3.315 × 10⁻¹⁹ J|6.63 × 10⁻¹⁹ J|9.94 × 10⁻¹⁹ J|B|KE = h(ν − ν₀) = 6.63 × 10⁻³⁴ × 0.5 × 10¹⁵ = 3.315 × 10⁻¹⁹ J",
+"What is the maximum number of electrons in the shell with principal quantum number n = 4?|8|18|32|50|C|Capacity = 2n² = 2(4)² = 32",
+"How many atomic orbitals are in the principal energy level n = 4?|4|8|16|32|C|Total orbitals = n² = 16",
+"How many subshells are in the principal energy level n = 3?|1|2|3|4|C|For n = 3, ℓ = 0, 1, 2, giving three subshells: 3s, 3p, 3d",
+"What is the maximum electron capacity of a subshell with ℓ = 2 (d subshell)?|2|6|10|14|C|Max electrons = 2(2ℓ + 1) = 2(5) = 10",
+"A subshell has 7 degenerate orbitals (f subshell, ℓ = 3). What is its maximum electron capacity?|6|10|14|18|C|Max electrons = 2 × 7 = 14"]},
+{t:"Concepts (50 questions)",P:{1:"Part I: Historical Development and Early Experiments",11:"Part II: Electromagnetic Radiation, Quantum Theory and Atomic Spectra",26:"Part III: Quantum Numbers and Atomic Orbitals",36:"Part IV: Electronic Configurations and Periodic Properties"},d:[
+"Which ancient Greek philosopher suggested that matter is made of tiny, indivisible particles called \"atomos\"?|Plato|Aristotle|Democritus|John Dalton|C|",
+"Which set of experimental laws is commonly associated with the foundations of Dalton's atomic theory?|Conservation of mass, definite proportions, and multiple proportions|Multiple proportions and Boyle's law|Combining volumes and conservation of energy|Periodic law and definite proportions|A|Dalton's theory was consistent with the laws of conservation of mass, definite proportions, and multiple proportions.",
+"J.J. Thomson discovered which subatomic particle in 1897 using a cathode-ray tube?|Proton|Neutron|Electron|Alpha particle|C|",
+"What value did Millikan establish for the charge of the electron in his oil-drop experiment (1909)?|−5.686 × 10⁻¹² C|−1.602 × 10⁻¹⁹ C|+1.602 × 10⁻¹⁹ C|9.109 × 10⁻³¹ C|B|",
+"Which radioactive emission consists of high-energy rays with no charge, unaffected by electric or magnetic fields?|Alpha (α) rays|Beta (β) rays|Gamma (γ) rays|Cathode rays|C|",
+"Rutherford's alpha-particle scattering experiment with gold foil led directly to the discovery of which atomic component?|The electron cloud|The nucleus|The neutron|The valence shell|B|",
+"Who discovered the neutron in 1932 by irradiating beryllium with alpha rays?|James Chadwick|Robert Millikan|J.J. Thomson|Max Planck|A|",
+"Which particle has a mass of about 1.67493 × 10⁻²⁷ kg and no electric charge?|Proton|Electron|Positron|Neutron|D|",
+"What was the name of the atomic model proposed by Thomson, which Rutherford's experiments disproved?|Planetary model|Plum-pudding model|Quantum mechanical model|Nuclear model|B|",
+"Which statement correctly compares protons and electrons?|A proton is about 1836 times more massive than an electron; their charges are equal in magnitude and opposite in sign|Protons and electrons have identical masses but opposite charges|Electrons are heavier than protons|Protons have zero charge and electrons are positive|A|",
+"What is the relationship between speed of light (c), frequency (ν) and wavelength (λ)?|c = ν/λ|c = λν|λ = c·ν²|ν = c·λ²|B|",
+"What is the energy of a single quantum (photon) in terms of frequency ν and Planck's constant h?|E = h/ν|E = hν²|E = hν|E = hν/c|C|",
+"Which phenomenon is the ejection of electrons from certain metals exposed to light of at least a minimum threshold frequency?|Atomic emission spectrum|Photoelectric effect|Radioactivity|Compton scattering|B|",
+"Who proposed that matter has wave and particle properties, giving λ = h/mv?|Albert Einstein|Max Planck|Louis de Broglie|Niels Bohr|C|",
+"Which series in the hydrogen emission spectrum has transitions ending at n_f = 2, partly in the visible region?|Lyman series|Balmer series|Paschen series|Brackett series|B|",
+"In the Bohr model, what does the principal quantum number n determine?|The spin of the electron|The shape of the orbital|The radius and energy of the electron orbit|The magnetic orientation of the atom|C|",
+"In the hydrogen energy-level equation Eₙ = −E_H/n², what is the value of the hydrogen energy constant E_H?|6.63 × 10⁻³⁴ J·s|3.00 × 10⁸ m/s|2.18 × 10⁻¹⁸ J|1.602 × 10⁻¹⁹ C|C|Here E_H is the hydrogen energy constant (2.18 × 10⁻¹⁸ J); the spectroscopic Rydberg constant has units of m⁻¹.",
+"Why does Bohr's energy expression Eₙ = −R_H/n² carry a negative sign?|Electron mass is negative|The electron's energy in the atom is lower than that of a free electron infinitely far from the nucleus|It represents repulsion within the nucleus|The ground state is unstable|B|",
+"Which statement describes a limitation of the Bohr model?|It accurately explained the spectra of all multi-electron atoms|It fully explained fine structure and Zeeman splitting|It is incompatible with the uncertainty principle because it assigns definite electron orbits, and it does not explain multi-electron spectra|It treated electrons as pure waves with no particle character|C|The Bohr model assigns definite orbits, which is incompatible with the quantum-mechanical uncertainty principle; it also fails for atoms and ions with more than one electron.",
+"What does Heisenberg's uncertainty principle state?|Energy can be created or destroyed in nuclear reactions|It is impossible to know with certainty both an electron's position and its momentum at the same time|Electrons travel in fixed planetary orbits|An electron's momentum is proportional to its principal quantum number|B|",
+"What does the magnitude squared of the wave function ψ represent in the quantum-mechanical model?|The exact trajectory of an electron|The probability density of finding the electron at a point in space|The mass of the nucleus|The spin velocity of the electron|B|The probability density is ψ*ψ (equivalently, the magnitude squared of ψ); the probability for a finite region is found by integrating that density over the region.",
+"Which region of the electromagnetic spectrum has the longest wavelength and lowest frequency?|Ultraviolet rays|X-rays|Gamma rays|Radio waves|D|",
+"An electron in hydrogen goes from n = 3 to n = 2. Is energy absorbed or emitted, and what is the sign of ΔE?|Absorbed; ΔE positive|Emitted; ΔE negative|Emitted; ΔE positive|No energy change|B|The electron's energy change ΔE = E_final − E_initial is negative; the emitted photon's energy is positive and equals |ΔE|.",
+"What is the frequency of any electromagnetic radiation of wavelength λ?|ν = c·λ|ν = λ/c|ν = c/λ|ν = h·c·λ|C|",
+"Which pair of phenomena demonstrates the wave nature and particle nature of light, respectively?|Diffraction of light and the photoelectric effect|The photoelectric effect and blackbody radiation|Alpha-particle scattering and radioactive decay|Refraction of sound and nuclear fission|A|Diffraction demonstrates the wave nature of light; the photoelectric effect demonstrates its particle-like, quantized energy transfer.",
+"Which quantum number describes the main energy level, or shell, of an electron?|Principal quantum number (n)|Angular momentum quantum number (ℓ)|Magnetic quantum number (mℓ)|Spin quantum number (mₛ)|A|",
+"What values of ℓ are allowed when n = 3?|1, 2, 3|0, 1, 2|−1, 0, +1|−½, +½|B|",
+"Which subshell letter corresponds to ℓ = 2?|s|p|d|f|C|",
+"How many orbitals are in the principal energy level n = 3?|3|6|9|16|C|",
+"What is the maximum number of electrons in one atomic orbital?|2|6|10|14|A|",
+"What is the shape of all s orbitals, whatever the value of n?|Dumbbell-shaped|Spherical|Cloverleaf-shaped|Linear|B|",
+"How are the three p orbitals of a given energy level oriented relative to each other?|Parallel in the same plane|At 60°|Along three mutually perpendicular axes (x, y, z)|Randomly inside the nucleus|C|",
+"Which orbital designation does not exist?|1s|2d|3p|4f|B|",
+"What does the spin quantum number mₛ specify?|The size of the orbital|The shape of the subshell|The orientation of the electron's spin (+½ or −½)|The distance from the nucleus|C|",
+"What is the electron capacity of the shell with principal quantum number n?|n|2n|2n²|4ℓ + 2|C|",
+"Which principle says electrons fill the lowest-energy available orbitals first?|Pauli's exclusion principle|Hund's rule|Aufbau principle|Periodic law|C|",
+"Which principle says no two electrons in an atom can have identical sets of all four quantum numbers?|Aufbau principle|Pauli's exclusion principle|Hund's rule|Heisenberg's principle|B|",
+"What does Hund's rule say about degenerate orbitals?|Electrons pair up immediately in the lowest orbital|Equal-energy orbitals are each singly occupied before any receives a second electron of opposite spin|Orbitals can hold up to four electrons|s and p orbitals must have identical energies|B|",
+"What is the expected (Aufbau) ground-state configuration of chromium (Z = 24), compared with the observed one?|Expected [Ar]4s²3d⁴; observed [Ar]4s¹3d⁵|Expected [Ar]4s²3d⁴; observed [Ar]4s²3d⁴|Expected [Ar]4s⁰3d⁶; observed [Ar]4s¹3d⁵|Expected [Ar]4s²3d³; observed [Ar]4s²3d³|A|",
+"Why do chromium (Z = 24) and copper (Z = 29) have configurations that differ from the simplest Aufbau prediction?|The 4s and 3d subshells are close in energy, and the observed arrangements have slightly lower total energy, with additional stabilization from 3d⁵ or 3d¹⁰|4s orbitals have higher energy than 3p orbitals|Transition metals do not obey quantum rules|Core electrons repel valence electrons|A|",
+"What does the modern periodic law state?|Properties repeat periodically when elements are arranged by increasing atomic mass|Properties repeat at regular intervals when elements are arranged by increasing atomic number|All elements in a period have identical physical properties|Metallic character decreases down any group|B|",
+"How does atomic radius vary across a period (left to right) and down a group?|Increases across; decreases down|Decreases across; increases down|Constant across; increases down|Decreases across; decreases down|B|",
+"Which term describes the energy required to remove one electron from each atom in one mole of gaseous atoms, forming gaseous 1+ ions?|Electron affinity|Electronegativity|Ionization energy|Lattice energy|C|First ionization energy is the energy required to remove one electron from each atom in one mole of gaseous atoms, forming one mole of gaseous 1+ ions.|",
+"Why does first ionization energy generally increase across a period?|Atomic radius increases, weakening nuclear attraction|Z_eff increases and radius decreases, tightening the attraction on outer electrons|Core electrons shield valence electrons completely|The number of energy shells increases|B|",
+"Which term describes the energy change when an electron is added to an isolated gaseous atom to form a gaseous anion?|Ionization energy|Electron affinity|Electronegativity|Heat of vaporization|B|Electron affinity is the energy change when an electron is added to an isolated gaseous atom to form a gaseous anion; state the sign convention when comparing numerical values.",
+"Which main-group elements generally have the most exothermic first electron affinities (most negative energy changes under this convention)?|Group 1 (alkali metals)|Group 2 (alkaline earth metals)|Group 17 (halogens)|Group 18 (noble gases)|C|Halogens generally have strongly exothermic first electron affinities because gaining one electron completes their valence shell.",
+"Who assigned the arbitrary value of 4.0 to fluorine on the electronegativity scale?|Linus Pauling|J.J. Thomson|Robert Millikan|Dmitri Mendeleev|A|",
+"How does electronegativity change down a group?|It increases|It decreases|It stays the same|It drops to zero for metals|B|",
+"How does metallic character change across a period from left to right?|It increases|It decreases|It stays constant|Non-metallic character disappears|B|",
+"What term describes electrons in the outermost principal level that take part in bonding?|Core electrons|Inner-transition electrons|Valence electrons|Degenerate electrons|C|"]}];
+let MA=[];
+function mrender(){MA=[];document.getElementById("mc").innerHTML=MS.map((S,si)=>`<div class="set" id="set${si}"><h2 class="lvl" style="font-size:1.5rem;margin-top:36px">${S.t}</h2>`+S.d.map((r,i)=>{const f=r.split("|"),n=i+1;return(S.P[n]?`<h2 class="lvl">${S.P[n]}</h2>`:"")+`<section class="q" data-s="${si}" data-i="${i}"><h2>Question ${n}</h2><p>${f[0]}</p>`+[1,2,3,4].map(k=>`<label class="op"><input type="radio" name="m${si}_${i}" value="${k-1}"><b>${"ABCD"[k-1]}.</b> ${f[k]}</label>`).join("")+`<div class="acts"><button class="ghost" type="button" data-sa="1">Show answer</button></div><div class="work"></div></section>`}).join("")+"</div>").join("");mupd();window.nav&&nav()}
+function mupd(){const t=document.querySelectorAll("#mc section").length,a=MA.filter(x=>x!==undefined).length,g=MA.filter(x=>x===1).length;document.getElementById("mscore").textContent=`${g} correct of ${a} answered (${t} questions)`}
+function mReveal(sec){if(!sec||sec.querySelector(".work.on"))return;const si=+sec.dataset.s,i=+sec.dataset.i,f=MS[si].d[i].split("|"),ans="ABCD".indexOf(f[5]),ch=[...sec.querySelectorAll("input[type=radio]")].findIndex(r=>r.checked);
+sec.querySelectorAll(".op").forEach((l,k)=>{l.querySelector("input").disabled=true;if(k===ans)l.classList.add("ok");else if(k===ch)l.classList.add("bad")});
+const w=sec.querySelector(".work");w.innerHTML=(ch===ans?"Correct. ":ch<0?"":"Not quite. ")+"Answer: "+f[5]+(f[6]?`<div>${f[6]}</div>`:"");w.classList.add("on");MA[si*1000+i]=ch===ans?1:0;mupd();const bt=sec.querySelector("[data-sa]");if(bt)bt.style.display="none"}
+document.getElementById("mc").addEventListener("click",e=>{const b=e.target.closest("button[data-sa]");if(b)mReveal(b.closest("section"))});
+document.getElementById("mreset").onclick=mrender;
+mrender();mixGen();
+function restoreState(S){if(!S)return;
+for(const id in (S.vals||{})){const el=document.getElementById(id);if(el)el.value=S.vals[id]}
+(S.cg||[]).forEach(i=>{if(Q[i])check(i)});(S.cu||[]).forEach(i=>{if(U[i])ucheck(i)});
+(S.work||[]).forEach(id=>{const e=document.getElementById(id);if(e)e.classList.add("on")});
+const mr=S.mr,qsel=k=>{const [si,i]=k.split("_");return document.querySelector(`#mc section[data-s="${si}"][data-i="${i}"]`)};
+for(const k in (S.mc||{})){const sec=qsel(k),r=sec&&sec.querySelectorAll("input[type=radio]")[S.mc[k]];if(r){r.checked=true;if(!mr||mr.includes(k))mReveal(sec)}}
+(mr||[]).forEach(k=>{if(!(k in (S.mc||{})))mReveal(qsel(k))})}
+try{restoreState(SAVED)}catch(e){console.warn("Could not restore saved progress",e)}
+</script>
+<script>
+(function(){
+const main=document.querySelector("main"),K=[...main.children];
+const f=fn=>K.findIndex(fn);
+const a0=f(e=>e.classList.contains("bar")),a1=f(e=>e.classList.contains("hint")),
+b0=f(e=>e.tagName==="H1"&&/Short Answer/.test(e.textContent)),b1=f(e=>e.id==="u1"),
+c0=f(e=>e.tagName==="H1"&&/Multiple/.test(e.textContent)),c1=f(e=>e.id==="mc");
+const mk=(x,y,id)=>{const d=document.createElement("div");d.className="panel";d.id=id;K[x].before(d);K.slice(x,y+1).forEach(k=>d.appendChild(k));return d};
+const P=[mk(a0,a1,"p0"),mk(b0,b1,"p1"),mk(c0,c1,"p2")];
+const names=["Short answer & calculations","Multiple choice"];
+const tabs=document.createElement("div");tabs.className="tabs";tabs.setAttribute("role","tablist");
+names.forEach((n,i)=>{const b=document.createElement("button");b.className="tab ghost";b.setAttribute("role","tab");b.innerHTML=`${n}<small></small>`;b.onclick=()=>show(i);tabs.appendChild(b)});
+P[0].before(tabs);
+const prog=document.createElement("div");prog.className="prog";prog.innerHTML="<i></i>";tabs.after(prog);
+let cur=0;window.curTab=()=>cur;
+function show(t){cur=t;[...tabs.children].forEach((b,i)=>{b.classList.toggle("ghost",i!==t);b.setAttribute("aria-selected",i===t)});
+P[0].style.display=P[1].style.display=t===0?"":"none";P[2].style.display=t===1?"":"none";
+scrollTo({top:0});refresh()}
+const G=()=>[document.getElementById("u1"),document.getElementById("set0"),document.getElementById("set1")];
+const isM=q=>!!q.querySelector(".op");
+function st(q){if(isM(q)){if(!q.querySelector(".op.ok"))return"";return q.querySelector("input:checked")&&q.querySelector("input:checked").parentElement.classList.contains("ok")?"ok":"bad"}
+const r=[...q.querySelectorAll(".row")];if(r.some(x=>x.classList.contains("bad")))return"bad";if(r.length&&r.every(x=>x.classList.contains("ok")))return"ok";return q.querySelector(".work.on")?"seen":""}
+const done=q=>isM(q)?st(q)!=="":["ok","seen"].includes(st(q));
+const jb=document.createElement("div");jb.className="jback";document.body.appendChild(jb);
+const closeJ=()=>{jb.classList.remove("on");document.querySelectorAll(".jsheet.on").forEach(x=>x.classList.remove("on"))};jb.onclick=closeJ;
+addEventListener("keydown",e=>{if(e.key==="Escape")closeJ()});
+window.nav=function(){G().forEach((c,gi)=>{if(!c)return;const o=c.querySelector(":scope>.chips");if(o)o.remove();if(c._sh)c._sh.remove();
+const qs=[...c.querySelectorAll("section.q")],d=document.createElement("div");d.className="chips";
+const hd=c.querySelector(":scope>h2.lvl"),title=hd?hd.textContent:"Short answer & calculations";
+const sh=document.createElement("div");sh.className="jsheet";sh.setAttribute("role","dialog");sh.setAttribute("aria-label","Jump to question");
+sh.innerHTML=`<div class="jh"><b>Jump to question</b><span>${title}</span><button class="ghost" type="button">Close</button></div><div class="jg"></div>`;
+sh.querySelector("button").onclick=closeJ;c._sh=sh;document.body.appendChild(sh);c._ch=[];
+qs.forEach((q,i)=>{const b=document.createElement("button");b.className="chip ghost";b.textContent=i+1;b.setAttribute("aria-label","Go to question "+(i+1));b.onclick=()=>{closeJ();q.scrollIntoView({behavior:"smooth",block:"start"})};sh.querySelector(".jg").appendChild(b);c._ch.push(b)});
+const j=document.createElement("button");j.className="jbtn";j.type="button";j.textContent="Jump to question ▾";j.onclick=()=>{sh.classList.add("on");jb.classList.add("on")};d.appendChild(j);
+const n=document.createElement("button");n.className="ghost";n.textContent="Next unanswered →";n.onclick=()=>{const q=qs.find(q=>!done(q));if(q)q.scrollIntoView({behavior:"smooth",block:"start"})};d.appendChild(n);c.prepend(d)});refresh()};
+function refresh(){let tot=0,dn=0;const cnt=[];G().forEach((c,gi)=>{if(!c)return;const qs=[...c.querySelectorAll("section.q")],ch=c._ch||[];let d=0;
+qs.forEach((q,i)=>{const s=st(q);if(ch[i])ch[i].className="chip ghost "+s;if(done(q))d++});cnt[gi]=[d,qs.length]});
+const sa=cnt[0]||[0,0],mc=[(cnt[1]||[0,0])[0]+(cnt[2]||[0,0])[0],(cnt[1]||[0,0])[1]+(cnt[2]||[0,0])[1]];
+document.getElementById("uscore").textContent=`${sa[0]} / ${sa[1]} questions done`;
+[sa,mc].forEach((x,i)=>tabs.children[i].querySelector("small").textContent=`${x[0]}/${x[1]}`);
+const x=cur?mc:sa;if(x[1])prog.firstChild.style.width=(100*x[0]/x[1])+"%"
+}
+["click","change","input"].forEach(ev=>document.addEventListener(ev,()=>setTimeout(refresh,0)));
+show(SAVED&&SAVED.tab===1?1:0);nav();if(SAVED&&SAVED.y)setTimeout(()=>scrollTo(0,SAVED.y),80);
+})();
+</script>
+<script>
+(function(){
+const $=s=>document.querySelector(s),RC=["#8d6e63","#ab47bc","#e53935","#43a047","#7e57c2","#26c6da","#ec407a"],RN=["Radio","Microwave","Infrared","Visible","Ultraviolet","X-ray","Gamma"];
+const rgb=l=>{l*=1e9;if(l<380||l>780)return null;let r=0,g=0,b=0;if(l<440){r=(440-l)/60;b=1}else if(l<490){g=(l-440)/50;b=1}else if(l<510){g=1;b=(510-l)/20}else if(l<580){r=(l-510)/70;g=1}else if(l<645){r=1;g=(645-l)/65}else r=1;const f=l<420?.3+.7*(l-380)/40:l>700?.3+.7*(780-l)/80:1;return`rgb(${[r,g,b].map(x=>Math.round(255*Math.pow(x*f,.8))).join()})`};
+const col=l=>rgb(l)||RC[region(l)],root=document.documentElement;
+/* theme */
+$("#themeBtn").onclick=()=>{const dark=root.dataset.theme==="dark"||(!root.dataset.theme&&matchMedia("(prefers-color-scheme:dark)").matches);root.dataset.theme=dark?"light":"dark"};
+/* spectrum */
+const bd=[[1e3,RC[0]],[.1,RC[1]],[1e-3,RC[2]],[7e-7,RC[3]],[4e-7,RC[4]],[1e-8,RC[5]],[1e-11,RC[6]]],pc=l=>(Math.log10(l)+13)/16*100;
+const edges=[0,pc(1e-11),pc(1e-8),pc(4e-7),pc(7e-7),pc(1e-3),pc(.1),100],order=[RC[6],RC[5],RC[4],RC[3],RC[2],RC[1],RC[0]];
+$("#sbar").style.background=`linear-gradient(90deg,${order.map((c2,i)=>`${c2} ${edges[i]}%,${c2} ${edges[i+1]}%`).join(",")})`;
+/* bar runs short→long wavelength left→right, so slider is in log λ */
+let L=5.5e-7,phase=0;
+const pre=[["Radio",1],["Micro",1e-2],["IR",1e-5],["Visible",5.5e-7],["UV",1e-7],["X-ray",1e-9],["Gamma",1e-12]];
+$("#pre").innerHTML=pre.map((p,i)=>`<button class="ghost" type="button" data-l="${p[1]}">${p[0]}</button>`).join("");
+$("#pre").onclick=e=>{const b=e.target.closest("button");if(b){$("#lam").value=(Math.log10(+b.dataset.l)+13)/16*1000;go()}};
+function go(){L=10**(-13+16*$("#lam").value/1000);const f=c/L,E=h*f,cl=col(L);root.style.setProperty("--wc",cl);
+$("#mark").style.left=pc(L)+"%";$("#o_reg").textContent=RN[region(L)];$("#o_l").innerHTML=sci(L);$("#o_f").innerHTML=sci(f);$("#o_e").innerHTML=sci(E);$("#o_ev").textContent=(E/eV).toPrecision(3);hl()}
+$("#lam").oninput=go;
+/* wave */
+const cv=$("#wave"),cx=cv.getContext("2d"),rm=matchMedia("(prefers-reduced-motion:reduce)").matches;
+function draw(){const w=cv.width=cv.clientWidth*devicePixelRatio,hh=cv.height=90*devicePixelRatio,cyc=2+38*(1-(Math.log10(L)+13)/16);cx.clearRect(0,0,w,hh);cx.lineWidth=3*devicePixelRatio;cx.strokeStyle=getComputedStyle(root).getPropertyValue("--wc");cx.shadowColor=cx.strokeStyle;cx.shadowBlur=10;cx.beginPath();for(let x=0;x<=w;x+=2){const y=hh/2+Math.sin(x/w*cyc*6.283-phase)*hh*.36;x?cx.lineTo(x,y):cx.moveTo(x,y)}cx.stroke();phase+=.07;if(!rm)requestAnimationFrame(draw)}
+/* hydrogen */
+const sv=$("#hsvg"),Y=n=>20+240/n;let A=3,Bn=2;
+function hl(){let o=`<defs><marker id="ah" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" style="fill:var(--wc)"/></marker></defs>`;
+for(let n=1;n<=6;n++){const on=n===A||n===Bn;o+=`<g class="lv" data-n="${n}"><rect x="20" y="${Y(n)-12}" width="190" height="24" fill="transparent"/><line x1="40" x2="190" y1="${Y(n)}" y2="${Y(n)}" stroke="${on?"var(--wc)":"var(--mute)"}" stroke-width="${on?4:2}" stroke-linecap="round"/><text x="196" y="${Y(n)+4}">n = ${n}</text></g>`}
+o+=`<line x1="40" x2="190" y1="20" y2="20" stroke="var(--line)" stroke-dasharray="4"/><text x="196" y="24">n = ∞ (E = 0)</text>`;
+if(Bn){o+=`<line class="glow" x1="115" x2="115" y1="${Y(A)}" y2="${Y(Bn)+(Bn<A?5:-5)}" stroke="var(--wc)" stroke-width="3" marker-end="url(#ah)"/>`}
+sv.innerHTML=o;const r=$("#hrd");
+if(!Bn){r.innerHTML=`<div style="grid-column:1/-1">Start: n = ${A}. Now pick a final level.</div>`;return}
+const dE=lv(Bn)-lv(A),l=h*c/Math.abs(dE),s=Math.min(A,Bn),ser={1:"Lyman (UV)",2:"Balmer",3:"Paschen (IR)",4:"Brackett (IR)",5:"Pfund (IR)"}[s]||"";
+const hc=rgb(l);r.innerHTML=`<div><small>Transition</small>n = ${A} → ${Bn}</div><div><small>Energy is</small><span class="pill">${dE<0?"Emitted":"Absorbed"}</span></div><div><small>ΔE</small>${sci(dE)} J</div><div><small>λ of photon</small>${(l*1e9).toFixed(1)} nm${hc?" · visible":""}</div><div style="grid-column:1/-1"><small>Series (ends on n = ${s})</small>${ser}</div>`}
+sv.addEventListener("click",e=>{const g=e.target.closest(".lv");if(!g)return;const n=+g.dataset.n;if(Bn||!A){A=n;Bn=0}else if(n!==A)Bn=n;else A=0;hl()});
+/* gamification */
+let prev=0;const xp=$("#xp");
+function tally(e){const n=document.querySelectorAll(".row.ok,.op.ok:has(input:checked)").length;xp.textContent="★ "+n+" correct";if(n>prev){xp.classList.remove("pop");void xp.offsetWidth;xp.classList.add("pop");if(!rm&&e&&e.target&&e.target.getBoundingClientRect){const b=e.target.getBoundingClientRect();for(let i=0;i<14;i++){const p=document.createElement("span");p.className="bf";p.style.cssText=`left:${b.left+b.width/2}px;top:${b.top}px;background:hsl(${i*26},80%,55%);--dx:${(Math.random()-.5)*160}px;--dy:${-30-Math.random()*90}px`;document.body.appendChild(p);setTimeout(()=>p.remove(),900)}}}prev=n}
+["click","change"].forEach(ev=>document.addEventListener(ev,e=>setTimeout(()=>tally(e),60)));
+if(SAVED){if(SAVED.lam)$("#lam").value=SAVED.lam;if(SAVED.theme)root.dataset.theme=SAVED.theme}
+go();draw();setTimeout(()=>tally(),0);
+})();
+</script>
+<script>
+(function(){
+const snap=()=>{const vals={};document.querySelectorAll("#u1 input[id],#u1 select[id]").forEach(e=>{if(e.value!=="")vals[e.id]=e.value});
+const mc={};document.querySelectorAll("#mc section").forEach(sec=>{const r=[...sec.querySelectorAll("input[type=radio]")].findIndex(x=>x.checked);if(r>=0)mc[sec.dataset.s+"_"+sec.dataset.i]=r});
+const mr=[...document.querySelectorAll("#mc section")].filter(sec=>sec.querySelector(".work.on")).map(sec=>sec.dataset.s+"_"+sec.dataset.i);
+return{v:1,mr,gen:Q.map(({s,...r})=>r),perm:PERM,vals,cg:Q.map((q,i)=>q.s?i:-1).filter(i=>i>=0),cu:U.map((_,i)=>US[i]?i:-1).filter(i=>i>=0),
+work:[...document.querySelectorAll(".work.on[id]")].map(e=>e.id),mc,tab:window.curTab?curTab():0,y:Math.round(scrollY),lam:document.getElementById("lam").value,theme:document.documentElement.dataset.theme||""}};
+let t,off=false;const write=()=>{if(off)return;try{localStorage.setItem(SKEY,JSON.stringify(snap()))}catch(e){}};
+const save=()=>{clearTimeout(t);t=setTimeout(write,250)};
+["click","change","input"].forEach(ev=>document.addEventListener(ev,save));addEventListener("scroll",save,{passive:true});
+addEventListener("pagehide",write);document.addEventListener("visibilitychange",()=>{if(document.hidden)write()});
+document.getElementById("resetBtn").onclick=()=>{if(!confirm("Clear all saved answers and start fresh?"))return;off=true;try{localStorage.removeItem(SKEY)}catch(e){}location.reload()};
+setTimeout(write,500);
+})();
+</script>
+</body>
+</html>
