@@ -1,0 +1,255 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><title>Projectile &amp; Circular Motion Practice</title><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&display=swap">
+<style>
+:root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);--bg:#eef2f8;--gr:rgba(37,71,208,.07);--card:#fff;--tx:#101828;--mu:#475467;--bd:#d5dce8;--ac:#2547d0;--ac2:#d9480f;--ok:#0f7b55;--okb:#dff5ea;--no:#b42318;--nob:#fde8e5;--sol:#eef2ff;--onac:#fff}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0e1220;--gr:rgba(124,155,255,.07);--card:#171c2b;--tx:#e8ebf5;--mu:#a1aac4;--bd:#2a3145;--ac:#8aa5ff;--ac2:#ff9a5c;--ok:#4cd6a0;--okb:#11352a;--no:#ff8a7a;--nob:#3a1d1a;--sol:#1c2340;--onac:#0b1020;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#0e1220;--gr:rgba(124,155,255,.07);--card:#171c2b;--tx:#e8ebf5;--mu:#a1aac4;--bd:#2a3145;--ac:#8aa5ff;--ac2:#ff9a5c;--ok:#4cd6a0;--okb:#11352a;--no:#ff8a7a;--nob:#3a1d1a;--sol:#1c2340;--onac:#0b1020;color-scheme:dark}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}*{box-sizing:border-box}
+body{margin:0;color:var(--tx);background:var(--bg) linear-gradient(var(--gr) 1px,transparent 1px) 0 0/28px 28px,linear-gradient(90deg,var(--gr) 1px,transparent 1px) 0 0/28px 28px;font:var(--fs,18px)/1.65 "Atkinson Hyperlegible",-apple-system,"Segoe UI",Roboto,Arial,sans-serif}
+.w{max-width:760px;margin:0 auto;padding:16px}
+h1{font-size:1.35em;line-height:1.2;margin:6px 0 4px;letter-spacing:-.01em}h2{margin:0 0 6px;line-height:1.3}.sub{color:var(--mu);font-size:.9em;margin:0 0 14px}
+.card{background:var(--card);border:1px solid var(--bd);border-radius:16px;padding:18px;margin:14px 0;scroll-margin-top:120px;box-shadow:0 1px 0 var(--bd)}
+.lnk{background:none;border:0;color:var(--ac);font:inherit;font-size:15px;padding:6px 0;cursor:pointer;text-decoration:none}
+.bar{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg);padding:6px 0 8px;border-bottom:1px solid var(--bd)}
+.row{display:flex;gap:6px;align-items:center;flex-wrap:wrap}
+.chip{border:1px solid var(--bd);background:var(--card);color:var(--tx);border-radius:99px;padding:3px 10px;font:inherit;font-size:.7em;font-weight:700;line-height:1.5;cursor:pointer}
+.chip.on{background:var(--ac);border-color:var(--ac);color:var(--onac)}
+.sc{margin-left:auto;font-weight:700;font-size:.85em}.st{color:var(--ac2);font-weight:700;font-size:.75em;min-width:5.5em;text-align:right}
+.pg{height:6px;background:var(--bd);border-radius:9px;margin:9px 0;overflow:hidden}.pg i{display:block;height:100%;width:0;background:var(--ac);transition:width .3s}
+dialog{background:var(--card);color:var(--tx);border:1px solid var(--bd);border-radius:16px;padding:18px;width:min(92vw,440px);font:inherit}dialog::backdrop{background:rgba(10,14,28,.55)}
+.jg{display:grid;grid-template-columns:repeat(auto-fill,minmax(52px,1fr));gap:8px;margin:12px 0 16px}.jn{height:48px;border-radius:10px;border:2px solid var(--bd);background:transparent;color:var(--tx);font:inherit;font-weight:700;cursor:pointer}
+.jn.ok{background:var(--okb);border-color:var(--ok);color:var(--ok)}.jn.no{background:var(--nob);border-color:var(--no);color:var(--no)}.jn.done{background:var(--sol);border-color:var(--ac)}.pw{flex:1;min-width:150px;border:2px solid var(--bd);border-radius:10px;padding:9px 12px;font:inherit;background:var(--card);color:var(--tx)}.jn.cur{outline:3px solid var(--ac);outline-offset:2px}.jk{display:flex;gap:14px;flex-wrap:wrap;font-size:.8em;color:var(--mu);margin:0 0 4px}
+.tb{display:flex;gap:6px;flex-wrap:wrap;margin:8px 0}
+.tag{display:flex;gap:10px;align-items:center;flex-wrap:wrap;font-size:.8em;font-weight:700;color:var(--mu);margin-bottom:10px}.qn{margin-left:auto}
+.pill{border-radius:99px;padding:2px 11px;color:var(--onac);background:var(--ac)}.pill.C{background:var(--ac2)}
+.q{font-weight:700;font-size:1.12em;line-height:1.5;margin:0 0 14px}
+.fig{display:block;max-width:100%;height:auto;border-radius:8px;margin:0 0 12px;background:#fff}
+.opt{display:flex;gap:12px;align-items:center;width:100%;text-align:left;border:2px solid var(--bd);background:transparent;color:var(--tx);border-radius:12px;padding:12px 14px;margin:8px 0;font:inherit;cursor:pointer;transition:border-color .15s,background .15s}
+.opt b{flex:none;width:30px;height:30px;border-radius:50%;display:grid;place-items:center;font-size:.85em;border:2px solid var(--bd);color:var(--ac)}
+.opt:hover:not(:disabled){border-color:var(--ac)}.opt:disabled{cursor:default}
+.opt.sel:not(.ok):not(.no){border-color:var(--ac);background:var(--sol)}.opt.sel b{background:var(--ac);border-color:var(--ac);color:var(--onac)}
+.opt.ok{background:var(--okb);border-color:var(--ok)}.opt.ok b{background:var(--ok);border-color:var(--ok);color:#fff}.opt.ok b::after{content:"✓"}
+.opt.no{background:var(--nob);border-color:var(--no)}.opt.no b{background:var(--no);border-color:var(--no);color:#fff}.opt.no b::after{content:"✕"}
+.opt.ok b span,.opt.no b span{display:none}.opt.pop{animation:pop .3s}@keyframes pop{50%{transform:scale(1.025)}}
+.btn{background:var(--ac);color:var(--onac);border:0;border-radius:10px;padding:10px 18px;font:inherit;font-weight:700;cursor:pointer}.btn:disabled{opacity:.4;cursor:not-allowed}
+.btn.alt{background:transparent;color:var(--ac);border:2px solid var(--ac)}.act{margin-top:8px}
+.sol{display:none;background:var(--sol);border-radius:12px;padding:14px 16px;margin-top:12px;font-size:.95em}.sol.show{display:block}.sol .n{color:var(--no);margin-top:6px;font-size:.85em}
+.res{font-weight:700;margin-bottom:4px}.res.ok{color:var(--ok)}.res.no{color:var(--no)}
+.nav{display:flex;justify-content:space-between;gap:10px;margin:6px 0 14px}.nav .go{animation:pop .4s}
+details.sim{padding:8px 14px}details.sim[open]{padding:12px 16px}details.sim summary{font-weight:700;cursor:pointer;font-size:.85em}
+canvas{width:100%;height:auto;background:var(--sol);border-radius:12px;margin:10px 0}
+.sl{display:flex;align-items:center;gap:10px;margin:4px 0}.sl label{min-width:56px;font-weight:700}.sl input[type=range]{flex:1;accent-color:var(--ac);height:30px}.sl span{min-width:76px;font-weight:700}
+.out{display:flex;gap:6px 16px;flex-wrap:wrap;font-weight:700;margin-top:8px;font-size:.9em}.cb{display:inline-flex;gap:8px;align-items:center;margin-right:12px}
+.end{display:none;gap:18px;align-items:center;flex-wrap:wrap}.end.show{display:flex}.end>div{flex:1;min-width:240px}
+.ring{width:130px;height:130px;flex:none}.ring circle{fill:none;stroke-width:9}.rb{stroke:var(--bd)}.rf{stroke:var(--ac);stroke-linecap:round;transition:stroke-dasharray .8s}.ring text{fill:var(--tx);font-weight:700;font-size:22px}
+.br{display:flex;gap:10px;align-items:center;margin:6px 0;font-size:.9em}.br span{min-width:84px}.bt{flex:1;height:8px;background:var(--bd);border-radius:9px;overflow:hidden}.bt i{display:block;height:100%;background:var(--ok)}
+.end .act{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+:is(.opt,.chip,.lnk,.jn,.btn):focus-visible{outline:3px solid var(--ac);outline-offset:2px}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+
+sub{font-size:.72em;line-height:0;vertical-align:sub;font-style:normal}
+.card .act{display:flex;gap:8px;flex-wrap:wrap}
+.hint{display:none;background:var(--sol);border-left:4px solid var(--ac2);border-radius:10px;padding:10px 14px;margin-top:10px;font-size:.95em}.hint.show{display:block}
+@keyframes shake{25%{transform:translateX(-7px)}75%{transform:translateX(7px)}}.opt.no.pop{animation:shake .35s}
+.cf{position:absolute;pointer-events:none;font-size:20px;animation:cf .9s ease-out forwards;z-index:9}
+@keyframes cf{to{transform:translate(var(--dx),var(--dy)) rotate(240deg);opacity:0}}
+.card{position:relative}
+.sl output{min-width:76px;font-weight:700}
+.stat{font-weight:700;margin-top:8px;padding:8px 12px;border-radius:10px;background:var(--okb);color:var(--ok)}.stat.bad{background:var(--nob);color:var(--no)}
+body{-webkit-user-select:none;user-select:none;-webkit-touch-callout:none;-webkit-tap-highlight-color:transparent}
+input{-webkit-user-select:text;user-select:text}img,canvas{-webkit-user-drag:none;user-drag:none}
+@media print{body{display:none!important}}
+</style></head><body><div class="w">
+<a class="lnk" href="https://phy-27.github.io/#resources">← Back to resources</a>
+<h1>Projectile &amp; Circular Motion</h1><p class="sub" id="sub"></p>
+<details class="card sim" open><summary>Projectile lab: launch it and watch</summary><canvas id="cv" width="640" height="300" role="img" aria-label="Projectile paths for the chosen angle and its complement"></canvas>
+<div class="sl"><label for="an">Angle</label><input id="an" type="range" min="5" max="85" value="30"><span id="anv"></span></div>
+<div class="sl"><label for="sp">Speed</label><input id="sp" type="range" min="5" max="30" value="20"><span id="spv"></span></div>
+<div class="sl"><label for="tm">Time</label><input id="tm" type="range" min="0" max="1000" value="0"><span id="tmv"></span></div>
+<div class="row"><label class="cb"><input type="checkbox" id="cp" checked> Show complementary angle (90° − θ)</label><label class="cb"><input type="checkbox" id="vc" checked> Show v<sub>x</sub> and v<sub>y</sub> arrows</label><button class="chip" id="ln">Launch again</button></div><div class="out" id="out"></div><div class="out" id="lv" aria-live="off"></div><p class="sub" style="margin:6px 0 0">Drag the Time slider to freeze the ball anywhere. Notice v<sub>x</sub> never changes while v<sub>y</sub> shrinks, hits zero at the top, then grows downward.</p></details>
+<details class="card sim" id="cd"><summary>Circular motion lab: vertical circle</summary><canvas id="cv2" width="640" height="330" role="img" aria-label="Ball moving in a vertical circle with weight, tension and velocity arrows"></canvas>
+<div class="sl"><label for="cr">Radius</label><input id="cr" type="range" min="0.5" max="2" step="0.1" value="0.9"><span id="crv"></span></div>
+<div class="sl"><label for="cvt">Top speed</label><input id="cvt" type="range" min="1" max="10" step="0.1" value="3"><span id="cvv"></span></div>
+<div class="sl"><label for="cps">Position</label><input id="cps" type="range" min="0" max="360" value="0"><span id="cpv"></span></div>
+<div class="row"><button class="chip" id="cpz">Pause</button><span class="sub" style="margin:0">Slow-motion. The string stays taut only while tension T ≥ 0.</span></div><div class="out" id="co"></div><div class="stat" id="cs"></div></details>
+<div class="bar"><div class="row"><button class="chip on" data-f="all">All</button><button class="chip" data-f="P">Projectile</button><button class="chip" data-f="C">Circular</button><button class="chip" id="jm">Jump to question</button><span class="st" id="st"></span><span class="sc" id="sc"></span></div><div class="pg"><i id="pg"></i></div></div>
+<div class="tb"><button class="chip" id="fm" aria-label="Smaller text">A−</button><button class="chip" id="fp" aria-label="Larger text">A+</button><button class="chip" id="th">Light / dark</button><button class="chip" id="sh">Shuffle</button><button class="chip" id="rw">Retry wrong</button></div>
+<p class="sub">Choose an option, then tap Submit answer. Keyboard: A–D to choose, Enter to submit, H for a hint. Take g = 10 m/s².</p>
+<div id="list"></div>
+<section class="card end" id="end" aria-live="polite"></section>
+<dialog id="jd"><h2>Jump to question</h2><p class="jk"><span>Green: correct</span><span>Red: incorrect</span><span>Blue: answered</span><span>Outline: current</span></p><div class="jg" id="jg"></div><button class="btn alt" id="jc">Close</button></dialog>
+</div>
+<script>
+const FIG="data:image/jpeg;base64,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";
+const Q=[
+{k:"P",s:"EUEE 2007 Physics, Q6",q:"If a long distance jumper athlete leaves the ground at an angle of 37.0° above the horizontal surface at a speed of 10.0 m/s, how far does he jump in the horizontal direction?",o:["4.8 m","6 m","9.6 m","12 m"],a:[2],sol:"R = 2u² sinθ cosθ / g = 2(10)²(0.6)(0.8) / 10 = 9.6 m."},
+{k:"P",s:"EUEE 2006 Physics, Q11",q:"Two projectiles are fired with the same speed, one at 30° and the other at 60° to the horizontal (neglect air resistance). Which one will hit the ground first?",o:["The one fired at 60°","The one fired at 30°","Both hit at the same time","Cannot be determined from the given information"],a:[1],sol:"Time of flight T = 2u sinθ / g. Since sin 30° < sin 60°, the 30° projectile lands first.",n:"Wording reconstructed from the scan, where part of the stem is hard to read."},
+{k:"P",s:"UEE 2009 Physics, Q17",q:"The range of a cannon-ball fired horizontally from a laboratory table is equal to 8/3 times the height of the table. What is the direction of the velocity vector of the projectile as it strikes the ground?",o:["45° from the horizontal","53° from the horizontal","60° from the horizontal","37° from the horizontal"],a:[3],sol:"With x = (8/3)y: v<sub>x</sub> = x/t and t = √(2y/g), v<sub>y</sub> = gt. Then tanθ = v<sub>y</sub>/v<sub>x</sub> = 3/4, so θ = 37°."},
+{k:"P",s:"UEE 2009 Physics, Q14",q:"A cricketer throws a ball vertically upwards with an initial speed of 20 m/s. How long is it in the air before it returns to the cricketer’s hands?",o:["2 s","10 s","1.5 s","4 s"],a:[3],sol:"y = ut − ½gt² with y = 0 gives t = 2u/g = 2(20)/10 = 4 s.",n:"The book’s printed key says B, but its own working gives 4 s (D)."},
+{k:"P",s:"EUEE 2010 Physics, Q5",q:"A bullet is fired at an angle of 30° above the horizontal. If air resistance is neglected, what should be the bullet’s horizontal acceleration (a<sub>x</sub>) and vertical acceleration (a<sub>y</sub>) when it reaches its maximum height?",o:["Both a<sub>x</sub> and a<sub>y</sub> are zero","a<sub>x</sub> is 10 m/s² downward, and a<sub>y</sub> is zero","Both a<sub>x</sub> and a<sub>y</sub> are 10 m/s², downward","a<sub>x</sub> is zero and a<sub>y</sub> is 10 m/s² downward"],a:[3],sol:"Horizontal velocity is constant, so a<sub>x</sub> = 0. Gravity acts throughout, so a<sub>y</sub> = g = 10 m/s² downward, even at the top."},
+{k:"P",s:"Added question",q:"A baseball player throws a ball horizontally. Which statement best describes the ball’s motion after it is thrown? [Neglect the effect of friction.]",o:["Its vertical speed remains the same, and its horizontal speed increases.","Its vertical speed remains the same, and its horizontal speed remains the same.","Its vertical speed increases, and its horizontal speed increases.","Its vertical speed increases, and its horizontal speed remains the same."],a:[3],sol:"Only gravity acts (vertical). Vertical speed increases (v<sub>y</sub> = gt) while horizontal speed stays constant."},
+{k:"P",s:"Added question",q:"Which of the following is not true about the path of a cannon ball launched horizontally from the earth’s surface if air resistance is neglected?",o:["The distance the cannonball travels is dependent on its mass","The total velocity of the cannonball increases as a function of time","The vertical velocity of cannonball increases as a function of time","The distance the cannonball travels only depends upon the height it is shot from"],a:[0,3],sol:"Range x = v<sub>0</sub>√(2h/g). (A) is false: range does not depend on mass. (B) and (C) are true. (D) is also false: range depends on the launch speed as well as the height.",n:"Two options are untrue as written, so A and D both count as correct here."},
+{k:"P",s:"Added question",q:"A ball is dropped from the top of a tower 100 m high. Simultaneously another ball is thrown upward with a speed of 50 m/s. After what time do they cross each other?",o:["1 s","2 s","3 s","4 s"],a:[1],sol:"Both balls accelerate at g, so their relative speed stays 50 m/s. The 100 m gap closes in t = 100/50 = 2 s. Check: 20 m fallen + 80 m risen = 100 m."},
+{k:"P",s:"Added question",q:"A basketball is thrown upwards on an arc at a 60 degree angle with the horizontal. If the velocity of the ball is 5 m/s, how fast must the thrower run to catch the ball after it is released?",o:["2.5 m/s","4.3 m/s","5.0 m/s","10 m/s"],a:[0],sol:"The thrower must match the ball’s horizontal motion: v<sub>x</sub> = 5 cos 60° = 2.5 m/s."},
+{k:"P",s:"Added question",fig:1,q:"Two projectiles, X and Y, are launched horizontally. X is launched with speed v<sub>x</sub> from a height 4h and Y with speed v<sub>y</sub> from a height h. Both X and Y land at the same point on horizontal ground. What is the ratio v<sub>x</sub>/v<sub>y</sub>?",o:["1/4","1/2","2","4"],a:[1],sol:"Fall time t = √(2H/g), so t<sub>X</sub>/t<sub>Y</sub> = √(4h/h) = 2. Same range means v<sub>x</sub>t<sub>X</sub> = v<sub>y</sub>t<sub>Y</sub>, so v<sub>x</sub>/v<sub>y</sub> = 1/2."},
+{k:"P",s:"Added question",q:"An object moving horizontally with speed v<sub>0x</sub> falls off the edge of a vertical cliff and lands a distance d from the base of the cliff. How far from the base of the cliff would the object land if the height of the cliff was doubled?",o:["d","√2 d","2d","2√2 d"],a:[1],sol:"Range d = v<sub>0x</sub>√(2h/g), so d ∝ √h. Doubling h multiplies the range by √2."},
+{k:"P",s:"Added question",q:"A projectile is fired at an angle of 30° from the horizontal with some initial speed. Firing the projectile at what other angle results in the same horizontal range if the initial speed is the same in both cases? Neglect air resistance.",o:["45°","60°","75°","90°"],a:[1],sol:"Range R = u² sin 2θ / g. Since sin 2θ = sin(180° − 2θ), angles θ and 90° − θ give the same range. The complement of 30° is 60°."},
+{k:"P",s:"Added question",q:"A baseball is thrown with an initial velocity of (10 î + 15 ĵ) m/s. When it reaches the top of its trajectory, what are (a) its velocity and (b) its acceleration? Neglect the effect of air resistance.",o:["(a) 10 î m/s; (b) zero","(a) 10 î m/s; (b) −9.8 ĵ m/s²","(a) zero; (b) −9.8 ĵ m/s²","(a) (10 î + 15 ĵ) m/s; (b) −9.8 ĵ m/s²"],a:[1],sol:"At the top the vertical velocity is zero, but the horizontal component stays 10 m/s (no air resistance), so v = 10 î m/s. Gravity is the only force, so the acceleration is −g ĵ = −9.8 ĵ m/s² (about −10 ĵ) everywhere, including the top."},
+{k:"C",s:"EUEE 2007 Physics, Q7",q:"A woman is rotating a bucket of water in a vertical circle of radius 0.9 m. The mass of bucket and water is 5 kg. What is the bucket’s minimum speed at the top of the circle if no water is to spill out?",o:["0","1 m/s","3 m/s","9 m/s"],a:[2],sol:"At the top, minimum speed has T = 0, so mg = mv²/r. v = √(gr) = √(10 × 0.9) = 3 m/s."},
+{k:"C",s:"EUEE 2007 Physics, Q11",q:"A highway curve is banked (inclined) in such a way that a car travelling at a speed of 13.5 m/s can round the curve without skidding, in the absence of friction. If the banking angle is 30°, what is the radius of the curve?",o:["10.5 m","21.0 m","31.7 m","36.7 m"],a:[2],sol:"Without friction, tanθ = v²/(rg). r = (13.5)² / (10 × tan 30°) ≈ 31.6 m, closest to 31.7 m."},
+{k:"C",s:"UEE 2009 Physics, Q16",q:"A fun-making boy swings a blinking ball tied to the end of a string in a vertical circle. If the radius of the circle is 0.5 m, what should be the minimum speed of the ball at the bottom of the circle to make a complete circular motion at the top?",o:["5 m/s","√5 m/s","√15 m/s","2√5 m/s"],a:[0],sol:"At the top, v<sub>top</sub>² = gr = 5. Energy conservation: v<sub>bottom</sub>² = v<sub>top</sub>² + 4gr = 5 + 20 = 25, so v<sub>bottom</sub> = √(5gr) = 5 m/s.",n:"The book’s solution gives √5 m/s (B), which is the minimum speed at the top, not the bottom. The printed key appears to be wrong."},
+{k:"C",s:"EUEE 2010 Physics, Q4",q:"Which one of the following statements is correct regarding the motion in a plane?",o:["When a body moves in a horizontal circle, its velocity is constant.","When a body moves in a vertical circle, its speed is constant.","The centripetal force for a body moving in either vertical or horizontal circle is toward the center.","In projectile motion the horizontal component of motion is uniformly accelerated motion."],a:[2],sol:"(A) Velocity changes direction. (B) Speed varies in a vertical circle because of gravity. (D) Horizontal motion in a projectile has constant velocity. (C) is correct."},
+{k:"C",s:"UEE 2008 Physics, Q20",q:"A flywheel is rotating with an angular velocity of 2.0 rad/s and acted on by an angular acceleration of 1/π rad/s². How long will it take to complete three revolutions?",o:["0.5π s","π s","2π s","4π s²"],a:[2],sol:"θ = ω<sub>0</sub>t + ½αt² with θ = 6π: 6π = 2t + t²/(2π), so t² + 4πt − 12π² = 0 and t = 2π s."}
+];
+const HINTS=[
+"Use R = u² sin 2θ / g, or find the time of flight first and multiply by the horizontal speed u cos θ.",
+"Time in the air is T = 2u sin θ / g. Which angle gives the larger u sin θ?",
+"Horizontal launch: x = v<sub>x</sub>t and y = ½gt². Put x = (8/3)y, then compare v<sub>y</sub> = gt with v<sub>x</sub> at landing.",
+"Going up and coming down take equal times. Time to the top is u/g.",
+"Gravity never switches off, not even at the top. Which direction does it point, and does it have a horizontal part?",
+"Only gravity acts, and it points straight down. Which velocity component does that change?",
+"Test each statement against the range formula x = v<sub>0</sub>√(2h/g). More than one statement may be untrue.",
+"Both balls accelerate downward at the same rate g. What does that do to their relative speed?",
+"The thrower must keep up with the ball's horizontal motion. Resolve the 5 m/s into components.",
+"Fall time depends only on height: t = √(2H/g). Same range means (speed × time) is equal for both.",
+"Range d = v<sub>0x</sub>t with t = √(2h/g). How does d change when h becomes 2h?",
+"Look at R = u² sin 2θ / g. Which other angle gives the same value of sin 2θ?",
+"At the very top, which velocity component is zero? Is gravity still acting?",
+"In the limiting case the tension at the top is zero, so weight alone gives the centripetal force: mg = mv²/r.",
+"With no friction, only the horizontal part of the normal force supplies the centripetal force: tan θ = v²/(rg).",
+"First find the minimum speed at the top (mg = mv²/r). Then use energy conservation down to the bottom, a drop of 2r.",
+"Think about direction versus speed. Which way does the centripetal force always point?",
+"Convert 3 revolutions to radians, then use θ = ω<sub>0</sub>t + ½αt² and solve the quadratic in t."
+];Q.forEach((q,i)=>q.h=HINTS[i]);
+/* Answer password. To change it: open the page, press F12, Console, type pwh("NewPassword") and paste the number into PWH. */
+const pwh=(s,seed=0)=>{let h1=0xdeadbeef^seed,h2=0x41c6ce57^seed;for(let i=0,c;i<s.length;i++){c=s.charCodeAt(i);h1=Math.imul(h1^c,2654435761);h2=Math.imul(h2^c,1597334677)}h1=Math.imul(h1^(h1>>>16),2246822507)^Math.imul(h2^(h2>>>13),3266489909);h2=Math.imul(h2^(h2>>>16),2246822507)^Math.imul(h1^(h1>>>13),3266489909);return 4294967296*(2097151&h2)+(h1>>>0)};
+const PWH=7495394804263092;let unl=false;
+const lockHTML=t=>`<div class="res">${t}</div><p style="margin:4px 0 10px">Enter the password from your teacher to see the correct answers and explanations.</p><div class="row"><input type="password" class="pw" aria-label="Password" placeholder="Password" autocomplete="off"><button class="btn uk">Unlock answers</button></div><div class="n pe" role="alert"></div>`;
+function wire(box){const i=box.querySelector(".pw"),t=()=>{if(pwh(i.value.trim())==PWH){unl=true;render()}else{box.querySelector(".pe").textContent="Incorrect password. Try again.";i.select()}};box.querySelector(".uk").onclick=t;i.onkeydown=e=>{if(e.key=="Enter"){e.preventDefault();t()}}}
+const L="ABCD",ans={},sel={},hs={};let flt="all",mode="all",cur=0,streak=0,ord=Q.map((_,i)=>i);
+const $=id=>document.getElementById(id),vis=()=>ord.filter(i=>flt=="all"||Q[i].k==flt),okq=i=>Q[i].a.includes(ans[i]);
+$("sub").textContent="Questions from past EUEE papers and others";
+function render(){
+ const v=vis();if(cur>=v.length)cur=Math.max(0,v.length-1);
+ const list=$("list");list.innerHTML="";
+ (mode=="one"?[v[cur]]:v).forEach(i=>{const x=Q[i],n=v.indexOf(i)+1,c=document.createElement("article");c.className="card";c.id="q"+i;
+  c.innerHTML=`<div class="tag"><span class="pill ${x.k}">${x.k=="P"?"Projectile":"Circular"}</span><span>${x.s}</span><span class="qn">${n} of ${v.length}</span></div><p class="q">${x.q}</p>${x.fig?`<img class="fig" src="${FIG}" alt="Projectile X launched from height 4h and projectile Y from height h">`:""}<div class="os"></div><div class="act"><button class="btn sb" disabled>Submit answer</button><button class="btn alt hb">💡 Hint</button></div><div class="hint"></div><div class="sol"></div>`;
+  const os=c.querySelector(".os");
+  x.o.forEach((t,j)=>{const b=document.createElement("button");b.className="opt";b.innerHTML=`<b><span>${L[j]}</span></b><span>${t}</span>`;b.onclick=()=>pick(i,j);os.appendChild(b)});
+  c.querySelector(".sb").onclick=()=>submit(i);c.querySelector(".hb").onclick=()=>hint(i);list.appendChild(c);if(hs[i])hint(i,1);if(i in ans)paint(i);else if(i in sel)pick(i,sel[i]);});
+ dots(v);stat(v);nav(v);$("rw").hidden=!unl;
+}
+function hint(i,keep){if(i in ans)return;const c=$("q"+i);if(!c)return;if(!keep)hs[i]=!hs[i];const h=c.querySelector(".hint");h.innerHTML="<b>Hint:</b> "+Q[i].h;h.classList.toggle("show",!!hs[i]);c.querySelector(".hb").textContent=hs[i]?"Hide hint":"💡 Hint"}
+function burst(el){if(RM)return;const r=el.getBoundingClientRect(),c=el.closest(".card"),cr=c.getBoundingClientRect();for(let n=0;n<14;n++){const s=document.createElement("span");s.className="cf";s.textContent=["🎉","✨","⭐","🎯"][n%4];s.style.left=(r.left-cr.left+r.width/2)+"px";s.style.top=(r.top-cr.top+r.height/2)+"px";s.style.setProperty("--dx",(Math.random()*200-100)+"px");s.style.setProperty("--dy",(-30-Math.random()*90)+"px");c.appendChild(s);setTimeout(()=>s.remove(),950)}}
+function pick(i,j){if(i in ans)return;sel[i]=j;const c=$("q"+i);c.querySelectorAll(".opt").forEach((b,k)=>b.classList.toggle("sel",k==j));c.querySelector(".sb").disabled=false}
+function submit(i){if(i in ans||!(i in sel))return;ans[i]=sel[i];if(unl)streak=okq(i)?streak+1:0;paint(i,1);const v=vis();dots(v);stat(v);nav(v)}
+function paint(i,fresh){
+ const x=Q[i],j=ans[i],ok=okq(i),c=$("q"+i);c.querySelector(".hint").classList.remove("show");
+ if(!unl){c.querySelectorAll(".opt").forEach((b,k)=>{b.disabled=true;if(k==j)b.classList.add("sel")});const s=c.querySelector(".sol");s.innerHTML=lockHTML("Answer submitted");s.classList.add("show");c.querySelector(".act").style.display="none";wire(s);return}
+ c.querySelectorAll(".opt").forEach((b,k)=>{b.disabled=true;if(x.a.includes(k))b.classList.add("ok");else if(k==j)b.classList.add("no");if(fresh&&k==j){b.classList.add("pop");if(ok)burst(b)}});
+ const s=c.querySelector(".sol");s.innerHTML=`<div class="res ${ok?"ok":"no"}">${ok?"Correct":"Not quite"}. Answer: ${x.a.map(k=>L[k]).join(" and ")}</div>${x.sol}${x.n?`<div class="n">Note: ${x.n}</div>`:""}`;
+ s.classList.add("show");c.querySelector(".act").style.display="none";
+}
+function dots(v){$("jg").innerHTML=v.map((i,p)=>{const s=i in ans?(unl?(okq(i)?"ok":"no"):"done"):"";return`<button class="jn ${s} ${mode=="one"&&p==cur?"cur":""}" data-p="${p}" aria-label="Question ${p+1}${s?(s=="ok"?", correct":s=="no"?", incorrect":", answered"):""}">${p+1}</button>`}).join("")}
+$("jg").onclick=e=>{const b=e.target.closest(".jn");if(b){$("jd").close();go(+b.dataset.p)}};
+$("jm").onclick=()=>$("jd").showModal();$("jc").onclick=()=>$("jd").close();
+function go(p){cur=p;render();const el=mode=="one"?document.querySelector(".card.sim~#list .card")||$("list"):$("q"+vis()[p]);el.scrollIntoView({block:"start"})}
+function nav(){}
+
+function stat(v){
+ const d=v.filter(i=>i in ans),r=d.filter(okq).length;
+ $("sc").textContent=unl?r+" / "+v.length:d.length+" / "+v.length+" answered";$("pg").style.width=(v.length?d.length/v.length*100:0)+"%";$("st").textContent=unl&&streak>1?"Streak "+streak:"";
+ const e=$("end");if(!v.length||d.length<v.length){e.classList.remove("show");return}
+ if(!unl){e.innerHTML="<div><h2>All answered</h2>"+lockHTML("Ready for the answers?")+"</div>";e.classList.add("show");wire(e);return}
+ const pc=Math.round(r/v.length*100),C=2*Math.PI*44,miss=v.filter(i=>!okq(i));
+ const rows=["P","C"].map(k=>{const a=v.filter(i=>Q[i].k==k);return a.length?`<div class="br"><span>${k=="P"?"Projectile":"Circular"}</span><div class="bt"><i style="width:${a.filter(okq).length/a.length*100}%"></i></div><b>${a.filter(okq).length}/${a.length}</b></div>`:""}).join("");
+ e.innerHTML=`<svg class="ring" viewBox="0 0 100 100" role="img" aria-label="${pc} percent"><circle class="rb" cx="50" cy="50" r="44"/><circle class="rf" cx="50" cy="50" r="44" stroke-dasharray="${C*pc/100} ${C}" transform="rotate(-90 50 50)"/><text x="50" y="57" text-anchor="middle">${pc}%</text></svg><div><h2>You scored ${r} out of ${v.length}</h2><p class="sub">${pc==100?"Perfect score.":pc>=70?"Strong result. Use Jump to question (red numbers) to review what you missed.":"Use Jump to question to find the red numbers, read the explanations, then retry the missed questions."}</p>${rows}<div class="act">${miss.length?`<button class="btn" id="rm">Retry ${miss.length} missed</button>`:""}<button class="btn alt" id="rs">Start over</button></div></div>`;
+ e.classList.add("show");if($("rm"))$("rm").onclick=retry;$("rs").onclick=()=>{for(const k in ans)delete ans[k];for(const k in sel)delete sel[k];streak=0;cur=0;render();scrollTo(0,0)};
+}
+function retry(){if(!unl)return;Object.keys(ans).forEach(i=>{if(!okq(i)){delete ans[i];delete sel[i]}});streak=0;const v=vis(),f=v.findIndex(i=>!(i in ans));cur=Math.max(0,f);render();scrollTo(0,0)}
+document.querySelectorAll("[data-f]").forEach(b=>b.onclick=()=>{document.querySelectorAll("[data-f]").forEach(x=>x.classList.remove("on"));b.classList.add("on");flt=b.dataset.f;cur=0;render()});
+let fs=18;const sf=d=>{fs=Math.min(26,Math.max(14,fs+d));document.documentElement.style.setProperty("--fs",fs+"px")};
+$("fm").onclick=()=>sf(-2);$("fp").onclick=()=>sf(2);
+$("sh").onclick=()=>{ord.sort(()=>Math.random()-.5);cur=0;render()};$("rw").onclick=retry;
+$("th").onclick=()=>{const r=document.documentElement,dk=r.dataset.theme?r.dataset.theme=="dark":matchMedia("(prefers-color-scheme:dark)").matches;r.dataset.theme=dk?"light":"dark";sim(0)};
+addEventListener("keydown",e=>{
+ if($("jd").open||e.target.tagName=="INPUT"||e.ctrlKey||e.metaKey||e.altKey)return;
+ const v=vis(),k=e.key.toLowerCase(),j="abcd".indexOf(k),c=mode=="one"?v[cur]:v.find(i=>!(i in ans));
+ if(k=="h"&&c!=null){hint(c);return}
+ if(j>=0&&k.length==1&&c!=null)pick(c,j);
+ else if(k=="enter"&&c!=null&&(e.target.tagName!="BUTTON"||e.target.classList.contains("opt"))){e.preventDefault();if(c in ans){if(mode=="one"&&cur<v.length-1)go(cur+1)}else submit(c)}
+ else if(mode=="one"&&k=="arrowright"&&cur<v.length-1)go(cur+1);
+ else if(mode=="one"&&k=="arrowleft"&&cur>0)go(cur-1);
+});
+/* Projectile lab */
+let raf=0,scrub=()=>{};const RM=matchMedia("(prefers-reduced-motion:reduce)").matches;
+const sb=(c,t,s,x,y)=>{c.font="bold 15px sans-serif";c.fillText(t,x,y);const w=c.measureText(t).width;c.font="bold 11px sans-serif";c.fillText(s,x+w+1,y+4)};
+function arrow(c,x0,y0,dx,dy,col,lw){const L=Math.hypot(dx,dy);if(L<3)return;const a=Math.atan2(dy,dx),e=[x0+dx,y0+dy];c.strokeStyle=col;c.fillStyle=col;c.lineWidth=lw||3;c.setLineDash([]);c.beginPath();c.moveTo(x0,y0);c.lineTo(e[0],e[1]);c.stroke();c.beginPath();c.moveTo(e[0],e[1]);c.lineTo(e[0]-10*Math.cos(a-.4),e[1]-10*Math.sin(a-.4));c.lineTo(e[0]-10*Math.cos(a+.4),e[1]-10*Math.sin(a+.4));c.closePath();c.fill()}
+function sim(play){
+ cancelAnimationFrame(raf);
+ const a=+$("an").value,u=+$("sp").value,g=10,cv=$("cv"),x=cv.getContext("2d"),W=cv.width,H=cv.height,p=30,s=Math.min((W-2*p)/95,(H-2*p)/46),st=getComputedStyle(document.documentElement),V=n=>st.getPropertyValue(n).trim(),ac=V("--ac"),a2=V("--ac2"),mu=V("--mu"),okc=V("--ok"),tx=V("--tx"),cp=$("cp").checked,vc=$("vc").checked;
+ const th=[{t:a,c:ac}];if(cp)th.push({t:90-a,c:a2});
+ th.forEach(o=>{o.r=o.t*Math.PI/180;o.T=2*u*Math.sin(o.r)/g;o.at=k=>[p+u*Math.cos(o.r)*k*s,H-p-(u*Math.sin(o.r)*k-5*k*k)*s]});
+ const R=u*u*Math.sin(2*a*Math.PI/180)/g,h=Math.pow(u*Math.sin(a*Math.PI/180),2)/(2*g),T=th[0].T,mx=Math.max(...th.map(o=>o.T));
+ $("anv").textContent=a+"°";$("spv").textContent=u+" m/s";
+ $("out").innerHTML=`<span>Range ${R.toFixed(1)} m</span><span>Max height ${h.toFixed(1)} m</span><span>Time ${T.toFixed(2)} s</span>`+(cp?`<span style="color:${a2}">${90-a}° lands at the same range, in ${th[1].T.toFixed(2)} s</span>`:"");
+ function draw(tt){
+  x.clearRect(0,0,W,H);x.font="12px sans-serif";x.fillStyle=mu;x.strokeStyle=mu;x.lineWidth=2;x.setLineDash([]);
+  x.beginPath();x.moveTo(p,H-p);x.lineTo(W-p,H-p);x.stroke();
+  for(let m=0;m<=90;m+=10){x.beginPath();x.moveTo(p+m*s,H-p);x.lineTo(p+m*s,H-p+5);x.stroke();x.fillText(m,p+m*s-6,H-8)}
+  th.forEach((o,n)=>{
+   x.strokeStyle=o.c;x.lineWidth=2;x.globalAlpha=.25;x.setLineDash([6,6]);x.beginPath();for(let i=0;i<=60;i++){const q=o.at(o.T*i/60);i?x.lineTo(q[0],q[1]):x.moveTo(q[0],q[1])}x.stroke();
+   const k=Math.min(tt,o.T);x.globalAlpha=1;x.setLineDash([]);x.lineWidth=3.5;x.beginPath();for(let i=0;i<=60;i++){const q=o.at(k*i/60);i?x.lineTo(q[0],q[1]):x.moveTo(q[0],q[1])}x.stroke();
+   const q=o.at(k);x.fillStyle=o.c;x.beginPath();x.arc(q[0],q[1],7,0,7);x.fill();
+   if(tt>=o.T){x.fillStyle=o.c;x.fillRect(q[0]-1.5,H-p-9,3,18)}
+  });x.globalAlpha=1;
+  if(vc){const o=th[0],k=Math.min(tt,o.T),q=o.at(k),vx=u*Math.cos(o.r),vy=u*Math.sin(o.r)-g*k,K=1.8;
+   arrow(x,q[0],q[1],vx*K,-vy*K,tx,1.8);arrow(x,q[0],q[1],vx*K,0,ac,3.5);arrow(x,q[0],q[1],0,-vy*K,okc,3.5);
+   x.fillStyle=ac;sb(x,"v","x",q[0]+vx*K*.5-6,q[1]+(vy>=0?18:-8));
+   x.fillStyle=okc;sb(x,"v","y",q[0]+10,q[1]-vy*K*.5+(Math.abs(vy)<1?-14:5))}
+ }
+ function info(tt){const o=th[0],k=Math.min(tt,o.T),vx=u*Math.cos(o.r),vy=u*Math.sin(o.r)-g*k;
+  $("tmv").textContent="t = "+k.toFixed(2)+" s";
+  $("lv").innerHTML=`<span style="color:${ac}">v<sub>x</sub> = ${vx.toFixed(1)} m/s (constant)</span><span style="color:${okc}">v<sub>y</sub> = ${vy.toFixed(1)} m/s ${vy>.05?"↑ rising":vy<-.05?"↓ falling":"at the top"}</span><span>speed = ${Math.hypot(vx,vy).toFixed(1)} m/s</span>`}
+ const now=tt=>{draw(tt);info(tt);$("tm").value=Math.min(1000,tt/mx*1000)};
+ scrub=f=>now(f*mx);
+ if(!play||RM){now(1e9);return}
+ const t0=performance.now();
+ (function f(n){const tt=(n-t0)/1000*1.3;now(tt);if(tt<mx)raf=requestAnimationFrame(f)})(t0);
+}
+["an","sp","cp","vc"].forEach(k=>$(k).oninput=()=>sim(1));$("ln").onclick=()=>sim(1);
+$("tm").oninput=()=>{cancelAnimationFrame(raf);scrub(+$("tm").value/1000)};
+
+/* Circular motion lab */
+let raf2=0,ph=0,tl=0,pz=RM;
+function cframe(n){
+ const d=$("cd");if(!d.open){raf2=0;return}
+ const dt=tl?Math.min(.05,(n-tl)/1000):0;tl=n;
+ const c=$("cv2"),x=c.getContext("2d"),W=c.width,H=c.height,r=+$("cr").value,vt=+$("cvt").value,g=10,K=62,CX=W/2,CY=H/2+4,Rp=r*K;
+ const st=getComputedStyle(document.documentElement),V=q=>st.getPropertyValue(q).trim(),ac=V("--ac"),a2=V("--ac2"),mu=V("--mu"),okc=V("--ok"),no=V("--no"),tx=V("--tx");
+ const spd=f=>Math.sqrt(vt*vt+2*g*r*(1-Math.cos(f))),tn=f=>spd(f)**2/(g*r)-Math.cos(f);
+ if(!pz){ph=(ph+spd(ph)/r*dt*.35)%(2*Math.PI);$("cps").value=Math.round(ph*180/Math.PI)}else ph=+$("cps").value*Math.PI/180;
+ const v=spd(ph),T=tn(ph),slack=T<0,vmin=Math.sqrt(g*r);
+ x.clearRect(0,0,W,H);x.lineWidth=2;x.strokeStyle=mu;x.globalAlpha=.35;x.setLineDash([6,6]);x.beginPath();x.arc(CX,CY,Rp,0,7);x.stroke();x.globalAlpha=1;x.setLineDash([]);
+ const bx=CX+Rp*Math.sin(ph),by=CY-Rp*Math.cos(ph);
+ x.fillStyle=mu;x.beginPath();x.arc(CX,CY,4,0,7);x.fill();
+ x.strokeStyle=slack?no:okc;x.lineWidth=3;x.setLineDash(slack?[5,6]:[]);x.beginPath();x.moveTo(CX,CY);x.lineTo(bx,by);x.stroke();x.setLineDash([]);
+ x.fillStyle=ac;x.beginPath();x.arc(bx,by,11,0,7);x.fill();
+ arrow(x,bx,by,0,42,a2,3.5);x.fillStyle=a2;sb(x,"m","g",bx+8,by+60);
+ if(T>.02){const L=Math.min(150,42*T),ux=(CX-bx)/Rp,uy=(CY-by)/Rp;arrow(x,bx,by,ux*L,uy*L,okc,3.5);x.fillStyle=okc;x.font="bold 15px sans-serif";x.fillText("T",bx+ux*L*.5+8,by+uy*L*.5)}
+ arrow(x,bx,by,Math.cos(ph)*v*7,Math.sin(ph)*v*7,tx,2.2);x.fillStyle=tx;x.font="bold 15px sans-serif";x.fillText("v",bx+Math.cos(ph)*v*7+8,by+Math.sin(ph)*v*7+4);
+ x.fillStyle=mu;x.font="12px sans-serif";x.fillText("top",CX-12,CY-Rp-14);x.fillText("bottom",CX-20,CY+Rp+22);
+ $("crv").textContent=r.toFixed(1)+" m";$("cvv").textContent=vt.toFixed(1)+" m/s";$("cpv").textContent=Math.round(ph*180/Math.PI)+"°";
+ $("co").innerHTML=`<span>Minimum top speed √(gr) = ${vmin.toFixed(2)} m/s</span><span>Minimum bottom speed √(5gr) = ${(vmin*Math.sqrt(5)).toFixed(2)} m/s</span><span>Now: v = ${v.toFixed(1)} m/s, T = ${T.toFixed(2)} mg</span>`;
+ const s=$("cs");if(vt>=vmin-1e-9){s.className="stat";s.textContent="Top speed is at least √(gr): the string stays taut all the way round."}else{s.className="stat bad";s.textContent="Top speed is below √(gr): the string goes slack near the top and the ball leaves the circle."}
+ raf2=requestAnimationFrame(cframe);
+}
+$("cd").addEventListener("toggle",()=>{if($("cd").open&&!raf2){tl=0;raf2=requestAnimationFrame(cframe)}});
+$("cpz").onclick=()=>{pz=!pz;$("cpz").textContent=pz?"Play":"Pause";$("cps").value=Math.round(ph*180/Math.PI)};
+$("cps").oninput=()=>{pz=true;$("cpz").textContent="Play"};
+$("cpz").textContent=pz?"Play":"Pause";
+/* Disable selecting and copying (password box stays usable) */
+const inp=e=>e.target&&e.target.tagName=="INPUT";
+["copy","cut","contextmenu","dragstart","selectstart"].forEach(t=>addEventListener(t,e=>{if(!inp(e))e.preventDefault()}));
+addEventListener("keydown",e=>{if((e.ctrlKey||e.metaKey)&&"acxspu".includes(e.key.toLowerCase())&&!inp(e))e.preventDefault()});
+sim(1);render();
+</script></body></html>
